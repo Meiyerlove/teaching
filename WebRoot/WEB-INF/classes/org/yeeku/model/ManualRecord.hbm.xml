@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="ManualRecord"	table="jbr_ManualRecord">
+
+		<id	name="id" column="ID">
+			<generator class="identity"/>
+		</id>
+		
+		<property name="emplID" column="EmplID" not-null="true" length="20" unique="true"/>
+
+		<property name="emplName" column="EmplName" not-null="true" length="20" unique="true"/>
+		<property name="subject" column="Subject" length="20"/>
+		<property name="teacherID" column="TeacherID" not-null="true" length="20"/>
+		<property name="teacherName" column="TeacherName" not-null="true" length="20"/>
+		<property name="roomID" column="RoomID" length="20"/>
+		<property name="roomNO" column="RoomNO" length="20"/>
+		<property name="recordTime" column="RecordTime" not-null="true" length="20"/>
+		<property name="status" column="Status" not-null="true" length="20"/>
+		<property name="cellPhone" column="CellPhone" length="20"/>
+		<property name="reasonType" column="ReasonType" length="20"/>
+		<property name="note" column="Note" length="500"/>
+		<property name="payTime" column="PayTime" length="20"/>
+		<property name="lessonNumber" column="LessonNumber" length="20"/>
+		<property name="lessonDate" column="LessonDate" length="20"/>
+		<property name="operBy" column="OperBy" length="20"/>
+
+	</class>	
+</hibernate-mapping>

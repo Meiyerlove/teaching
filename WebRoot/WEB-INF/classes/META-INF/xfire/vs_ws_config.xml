@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  有关如何配置 ASP.NET 应用程序的详细消息，请访问
+  http://go.microsoft.com/fwlink/?LinkId=169433
+  -->
+
+<configuration>
+    <configSections>
+    </configSections>
+    <system.web>
+        <compilation debug="true" targetFramework="4.0" />
+    </system.web>
+ <system.diagnostics>
+  <sharedListeners>
+   <!-- TODO: Please fix the log file name here! -->
+   <add initializeData="F:TempTracesapp_messages_aliclient.svclog"
+                type="System.Diagnostics.XmlWriterTraceListener, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                name="ServiceModelMessageLoggingListener" traceOutputOptions="Timestamp">
+    <filter type="" />
+   </add>
+   <!-- TODO: Please fix the log file name here! -->
+   <add initializeData="F:TempTracesapp_tracelog_aliclient.svclog"
+                type="System.Diagnostics.XmlWriterTraceListener, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                name="ServiceModelTraceListener" traceOutputOptions="Timestamp">
+    <filter type="" />
+   </add>
+  </sharedListeners>
+ </system.diagnostics>
+
+ <system.serviceModel>
+  <diagnostics>
+   <messageLogging logEntireMessage="false" logMalformedMessages="false"
+                logMessagesAtTransportLevel="false" />
+  </diagnostics>
+  <bindings>
+   <customBinding>
+    <binding name="Soap11CustomBinding">
+     <textMessageEncoding messageVersion="Soap11" />
+     <security defaultAlgorithmSuite="Basic128" allowSerializedSigningTokenOnReply="true"
+                        authenticationMode="MutualCertificate" requireDerivedKeys="false"
+                        securityHeaderLayout="Lax" includeTimestamp="true" keyEntropyMode="CombinedEntropy"
+                        messageProtectionOrder="SignBeforeEncrypt" messageSecurityVersion="WSSecurity10WSTrustFebruary2005WSSecureConversationFebruary2005WSSecurityPolicy11BasicSecurityProfile10"
+                        requireSecurityContextCancellation="false">
+      <secureConversationBootstrap />
+     </security>
+     <httpTransport />
+    </binding>
+   </customBinding>
+  </bindings>
+  <behaviors>
+   <endpointBehaviors>
+    <behavior name="NewBehavior">
+     <clientCredentials>
+      <clientCertificate findValue="CN=ws_security_client" storeLocation="CurrentUser"
+       storeName="My" x509FindType="FindBySubjectDistinguishedName" />
+      <serviceCertificate>
+       <defaultCertificate findValue="CN=ws_security_service" storeLocation="CurrentUser"
+        storeName="My" x509FindType="FindBySubjectDistinguishedName" />
+       <authentication customCertificateValidatorType="" certificateValidationMode="PeerOrChainTrust" />
+      </serviceCertificate>
+      <issuedToken cacheIssuedTokens="false" />
+     </clientCredentials>
+    </behavior>
+   </endpointBehaviors>
+  </behaviors>
+  
+  <client>
+   <endpoint address="http://192.168.0.23:8080/xfire/services/BookServiceSign"
+    behaviorConfiguration="NewBehavior" binding="customBinding" bindingConfiguration="Soap11CustomBinding"
+    contract="ServiceReference1.BookServiceSignPortType" name="BookServiceSignHttpPort">
+    <identity>
+     <dns value="ws_security" />
+     <certificateReference x509FindType="FindBySubjectName" />
+    </identity>
+   </endpoint>
+  </client>
+    </system.serviceModel>
+</configuration>

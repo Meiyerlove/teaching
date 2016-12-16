@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="Cursch"	table="jbr_cur_sch">
+
+		<id	name="id" column="id">
+			<generator class="identity"/>
+		</id>
+		
+		<property name="teaid" column="teaid" not-null="true" length="20"/>
+		<property name="subject" column="subject" not-null="true" length="20"/>
+		<property name="weekday" column="weekday" not-null="true" length="10"/>
+		<property name="fromtime" column="fromtime" not-null="true" length="8"/>
+		<property name="totime" column="totime" not-null="true" length="8"/>
+		<property name="roomNO" column="roomno" not-null="true" length="20"/>
+		<property name="sequenceNumber" column="SequenceNumber" not-null="true" length="20"/>
+
+	</class>	
+</hibernate-mapping>

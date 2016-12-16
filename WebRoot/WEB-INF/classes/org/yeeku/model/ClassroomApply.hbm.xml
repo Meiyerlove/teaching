@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="ClassroomApply"	table="classroomapply">
+
+		<id	name="id" column="id">
+			<generator class="identity"/>
+		</id>
+        <property name="clrid" column="clrid" type="java.lang.Integer" not-null="false"  />
+		<property name="createtime" column="createtime"  type="java.util.Date" not-null="false" />
+		<property name="sapplydate" column="applydate" type="java.lang.String" not-null="false"  />
+		<property name="applystarttime" column="applystarttime" type="java.lang.String" not-null="false"  />
+		<property name="applyendtime" column="applyendtime" type="java.lang.String" not-null="false"  />
+		
+		<property name="approvestatus" column="approvestatus" type="java.lang.Integer" not-null="false"  />
+		<property name="approverid" column="approverid" type="java.lang.Integer" not-null="false"  />
+		<property name="userid" column="userid" type="java.lang.Integer" not-null="false"  />
+		<property name="user" column="user" type="java.lang.String" not-null="false"  />
+		<property name="roomname" column="roomname" type="java.lang.String" not-null="false" />
+		<property name="campus" column="campus" type="java.lang.String" not-null="false"></property>
+		<property name="applyreason" column="applyreason" type="java.lang.String" not-null="false"></property>
+		<property name="approver" column="approver" type="java.lang.String" not-null="false"></property>
+		
+
+	</class>	
+</hibernate-mapping>

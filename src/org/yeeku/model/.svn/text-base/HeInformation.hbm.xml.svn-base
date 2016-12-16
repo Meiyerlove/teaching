@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="HeInformation"	table="jbr_he_information">
+
+		<id	name="id" column="id">
+			<generator class="identity"/>
+		</id>
+
+		<property name="emplID" column="EmplID" not-null="true" length="10" unique="true"/>
+		<property name="emplName" column="EmplName" not-null="true" length="20"/>
+		<property name="joinTime" column="JoinTime" length="20"/>
+		<property name="recommendPerson" column="RecommendPerson" length="20"/>
+		
+		<property name="fatherName" column="FatherName" length="20"/>
+		<property name="fatherCompany" column="FatherCompany" length="20"/>
+		<property name="fatherProfession" column="FatherProfession" length="20"/>
+		<property name="fatherCellphone" column="FatherCellphone" length="20"/>
+		<property name="fatherPhoneNumber" column="FatherPhoneNumber" length="20"/>
+		<property name="fatherEmail" column="FatherEmail" length="20"/>
+		<property name="fatherqqormsn" column="Fatherqqormsn" length="20"/>
+		
+		<property name="motherName" column="MotherName" length="20"/>
+		<property name="motherCompany" column="MotherCompany" length="20"/>
+		<property name="motherProfession" column="MotherProfession" length="20"/>
+		<property name="motherCellphone" column="MotherCellphone" length="20"/>
+		<property name="motherPhoneNumber" column="MotherPhoneNumber" length="20"/>
+		<property name="motherEmail" column="MotherEmail" length="20"/>
+		<property name="motherqqormsn" column="Motherqqormsn" length="20"/>
+		
+		<property name="address" column="Address" length="20"/>
+		<property name="postcode" column="Postcode" length="20"/>
+		<property name="phoneNumber" column="PhoneNumber" length="20"/>
+		
+		<property name="otherContactPerson" column="OtherContactPerson" length="20"/>
+		<property name="otherName" column="OtherName" length="20"/>
+		<property name="relationShip" column="RelationShip" length="20"/>
+		<property name="otherCellphone" column="OtherCellphone" length="20"/>
+		<property name="otherPhoneNumber" column="OtherPhoneNumber" length="20"/>
+
+	</class>	
+</hibernate-mapping>

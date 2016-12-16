@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="Contract"	table="jbr_contract">
+
+		<id	name="id" column="id">
+			<generator class="identity"/>
+		</id>
+
+		<property name="contractNO" column="ContractNO" length="20" unique="true"/>
+		<property name="emplID" column="EmplID" length="20"/>
+		<property name="emplName" column="EmplName" length="20"/>
+		<property name="totalLessonAmount" column="TotalLessonAmount"  length="20"/>
+		<property name="amount" column="Amount"  length="20"/>
+		
+		<property name="contractDate" column="ContractDate" length="20"/>
+		<property name="expireDate" column="ExpireDate"  length="20"/>
+		<property name="remainLessonAmount" column="RemainLessonAmount"  length="20"/>
+		
+		<property name="contractStatus" column="ContractStatus"  length="20"/>
+		<property name="contractPayStatus" column="ContractPayStatus"  length="20"/>
+		<property name="contractType" column="ContractType" length="20"/>
+		
+		<property name="salesConsultant" column="salesConsultant" length="20"/>
+		
+		<property name="userId" column="UserId" length="20"/>
+		<property name="userName" column="UserName" length="20"/>
+		<property name="status" column="Status" length="20"/>
+		
+
+	</class>	
+</hibernate-mapping>

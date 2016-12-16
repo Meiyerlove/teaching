@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns:my="http://my.bjvsp.tongtech.com">
+	<mapping name="my:ServiceImpl">
+		<property name="studentList" componentType="org.yeeku.model.Student" />
+	</mapping>
+</mappings>

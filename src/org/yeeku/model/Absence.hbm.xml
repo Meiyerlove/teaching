@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="Absence"	table="absence">
+		<id	name="id" column="id">
+			<generator class="native"/>
+		</id>
+		<property name="subjectid" type="java.lang.Integer">
+            <column name="subjectid" length="20"/>
+        </property>
+        <property name="sid" type="java.lang.String">
+            <column name="sid" length="80"/>
+        </property>
+        <property name="teachername" type="java.lang.String">
+            <column name="teachername" length="80"/>
+        </property>
+        <property name="type" type="java.lang.Integer">
+            <column name="type" length="20"/>
+        </property>
+        <property name="absencedate" type="java.util.Date">
+            <column name="absencedate" length="80"/>
+        </property>
+        <property name="classid" type="java.lang.Integer">
+            <column name="classid" length="20"/>
+        </property>
+	</class>	
+</hibernate-mapping>

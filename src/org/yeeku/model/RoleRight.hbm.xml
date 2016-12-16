@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="RoleRight"	table="role_right">
+		<id	name="id" column="id">
+			<generator class="identity"/>
+		</id>
+		<property name="roleid" type="java.lang.Integer">
+            <column name="role_id" length="45"/>
+        </property>
+		<property name="rightcode" type="java.lang.String">
+            <column name="right_code" length="45"/>
+        </property>
+        <property name="rightedit" type="java.lang.String">
+            <column name="right_edit" length="45"/>
+        </property>
+        <property name="index" type="java.lang.Integer">
+            <column name="rindex" length="20"/>
+        </property>
+	</class>	
+</hibernate-mapping>

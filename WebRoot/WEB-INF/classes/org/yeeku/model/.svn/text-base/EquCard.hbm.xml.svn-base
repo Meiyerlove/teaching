@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="EquCard"	table="EquCard">
+
+		<id	name="serialID" column="SerialID">
+		</id>
+
+		<property name="cardNO" column="CardNO" not-null="true" length="20" unique="true"/>
+		<property name="emplID" column="EmplID" not-null="true" length="20" unique="true"/>
+		<property name="emplName" column="EmplName" not-null="true" length="20"/>
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,93 @@
+/* CSS Document */
+body {
+margin:0;
+font-family:Tahoma,Arial, Helvetica, sans-serif, "宋体";
+line-height:90%;
+}
+/*以下是顶部样式*/
+#top {
+width:988px;
+height:75px;
+background-image:url(../images/top-back.jpg);
+background-repeat:no-repeat;
+}
+#topbanner { 
+padding-left: 720px;
+padding-top:16px; 
+font-size:12px;
+align:right;
+}
+#topbanner a {
+color:#333;
+text-decoration: none;
+}
+#topbanner a:hover,#topbanner a:active {
+color:#349fa1;
+text-decoration: none;
+}
+.cutline {
+padding:0 16px 0 16px;
+}
+/*error form*/
+#div-error{
+width:100%;
+}
+#div-error table{
+border-collapse:collapse;
+font-size:12px;
+color:#333;
+}
+#div-error th {
+height:18px;
+background-color:#4b7273;
+text-align:left;
+font-size:12px;
+color:#FFF;
+padding:1px 0 0 14px;
+font-weight:normal;
+border:1px solid #FFF;
+}
+#div-error td {
+color:#D20000;
+padding-left:14px;
+font-size:12px;
+border:1px solid #FFF;
+}
+
+/*Here is left menu*/
+#login-left {
+font-size:12px;
+float:left;
+width:157px;
+height:463px;
+background-image:url(../images/login-left-back.jpg);
+background-repeat:no-repeat;
+padding:64px 0px 0px 28px;
+margin:0px;
+}
+#fields input {
+border:3px double #3f798e;
+color:#333;
+background-color:#3f798e;
+font-size:12px;
+width:120px;
+}
+.btn-login{
+font-size: 12px;
+background-color:#3f798e;
+height: 18px;
+width:62px;
+color:#FFF;
+border: 1px outset #086f72;
+}
+
+/*here is main style*/
+#main {
+background-color:#99FF00;
+}
+#mainfoot {
+margin-left:60px;
+background-image:url(../images/but-back.gif);
+background-repeat:repeat-x;
+height:51px;
+}

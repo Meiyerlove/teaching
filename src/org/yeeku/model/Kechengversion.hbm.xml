@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="Kechengversion"	table="kechengversion">
+		<id	name="id" column="id">
+			<generator class="native"/>
+		</id>
+		<property name="vname" type="java.lang.String">
+            <column name="vname" length="30"/>
+        </property>
+        <property name="vid" type="java.lang.String">
+            <column name="vid" length="30"/>
+        </property>
+        <property name="createid" type="java.lang.String">
+            <column name="createid" length="30"/>
+        </property>
+        <property name="createdate" type="java.lang.String">
+            <column name="createdate" length="100"/>
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="description" length="100"/>
+        </property>
+        <property name="isvalid" type="java.lang.Integer">
+            <column name="isvalid" length="10"/>
+        </property>
+	</class>	
+</hibernate-mapping>

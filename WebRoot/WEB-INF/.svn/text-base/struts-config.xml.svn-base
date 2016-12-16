@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  <data-sources />
+  <form-beans>
+    <form-bean name="managerForm" type="com.wgh.actionForm.ManagerForm" />
+    <form-bean name="questionsForm" type="com.wgh.actionForm.QuestionsForm" />
+    <form-bean name="stuResultForm" type="com.wgh.actionForm.StuResultForm" />
+    <form-bean name="queryResultIfForm" type="com.wgh.actionForm.QueryResultIfForm" />
+  </form-beans>
+  <global-exceptions />
+  <global-forwards />
+  <action-mappings >
+    <!-- 管理员 -->
+    <action name="managerForm" path="/manage/manager" scope="request" type="com.wgh.action.Manager" validate="true">
+	  <forward name="managerLoginok" path="/manage/stuResult.do?action=stuResultQuery" />
+      <forward name="managerQuery" path="/manage/manager.jsp"/>
+      <forward name="managerAdd" path="/manage/manager_ok.jsp?para=1" />
+      <forward name="pwdQueryModify" path="/manage/pwd_Modify.jsp" />
+      <forward name="pwdModify" path="/manage/pwd_ok.jsp" />
+      <forward name="managerDel" path="/manage/manager_ok.jsp?para=3" />
+      <forward name="modifypwd" path="/manage/manager.do?action=managerQuery" />
+      <forward name="error" path="/manage/error.jsp" />
+    </action>
+    <!-- 开始考试 -->
+     <action name="questionsForm" path="/manage/startExam" scope="session" type="com.wgh.action.StartExam">
+       <forward name="testPaper" path="/startExam.jsp"/>
+       <forward name="dealNull" path="/dealNull.jsp"/>
+       <forward name="submitTestPaperok" path="/submitTestPaperok.jsp"/>
+       <forward name="showStartTime" path="/showStartTime.jsp"/>
+       <forward name="showRemainTime" path="/showRemainTime.jsp"/>
+       <forward name="error" path="/error.jsp" />   
+    </action>
+     <!-- 考试题目-->
+	 <action name="questionsForm" path="/manage/questions" scope="request" type="com.wgh.action.Questions" validate="true">
+      <forward name="questionsQuery" path="/manage/questions.jsp" />
+      <forward name="questionsAddQuery" path="/manage/questions_Add.jsp"/>
+      <forward name="questionsAdd" path="/manage/questions_ok.jsp?para=1" />
+      <forward name="questionsDel" path="/manage/questions_ok.jsp?para=3" />
+      <forward name="questionsModifyQuery" path="/manage/questions_Modify.jsp"/>
+      <forward name="questionsModify" path="/manage/questions_ok.jsp?para=2" />
+      <forward name="queryTaoTi" path="/manage/selTaoTi.jsp"/>
+      <forward name="setSMOption" path="/manage/setSMOption.jsp"/>
+      <forward name="error" path="/manage/error.jsp" />
+    </action>
+      <!-- 考生成绩-->
+	 <action name="stuResultForm" path="/manage/stuResult" scope="request" type="com.wgh.action.StuResult" validate="true">
+      <forward name="stuResultQuery" path="/manage/main.jsp" />
+      <forward name="stuResultQueryS" path="/stuResultQuery.jsp"/>
+      <forward name="error" path="/manage/error.jsp" />
+    </action>
+    <action name="queryResultIfForm" path="/manage/queryResultIf" scope="session" type="com.wgh.action.StuResult" validate="true">
+      <forward name="stuResultQuery" path="/manage/main.jsp" />
+      <forward name="error" path="/manage/error.jsp" />
+    </action>   
+  </action-mappings>
+      <controller processorClass="com.wgh.action.SelfRequestProcessor" />
+      <message-resources parameter="com.wgh.struts.ApplicationResources" />
+</struts-config>
+

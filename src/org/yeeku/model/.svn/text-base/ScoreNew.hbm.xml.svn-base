@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="ScoreNew"	table="score_new">
+		<id	name="id" column="id">
+			<generator class="native"/>
+		</id>
+		<property name="sid" type="java.lang.String">
+            <column name="sid" length="45"/>
+        </property>
+        <property name="subjectid" type="java.lang.Integer">
+            <column name="subjectid" length="10"/>
+        </property>
+        <property name="examdate" type="java.lang.String">
+            <column name="examdate" length="45"/>
+        </property>
+        <property name="examid" type="java.lang.Integer">
+            <column name="examid" length="10"/>
+        </property>
+        <property name="classkey" type="java.lang.Integer">
+            <column name="classkey" length="10"/>
+        </property>
+        <property name="scoretype" type="java.lang.Integer">
+            <column name="scoretype" length="10"/>
+        </property>
+        <property name="buttonstatus" type="java.lang.Integer">
+            <column name="buttonstatus" length="10"/>
+        </property>
+        <property name="result" type="java.lang.String">
+            <column name="result" length="45"/>
+        </property>
+        <property name="examtype" type="java.lang.Integer">
+            <column name="examtype" length="10"/>
+        </property>
+        <property name="major" type="java.lang.String">
+            <column name="major" length="45"/>
+        </property>
+        <property name="phaseid" type="java.lang.Integer">
+            <column name="phaseid" length="10"/>
+        </property>
+       <property name="baifenresult" type="java.lang.Double">
+            <column name="baifenresult" length="10"/>
+        </property>
+       
+	</class>	
+</hibernate-mapping>

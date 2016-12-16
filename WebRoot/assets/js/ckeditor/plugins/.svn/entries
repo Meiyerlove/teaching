@@ -1,0 +1,135 @@
+10
+
+dir
+3722
+svn://115.29.173.167/workspace/teachingdv12/WebRoot/assets/js/ckeditor/plugins
+svn://115.29.173.167
+
+
+
+2016-05-30T02:25:08.112984Z
+3044
+zengjiuzhou
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+aa8e18cd-ade2-5e46-a943-153739fca1c5
+
+a11yhelp
+dir
+
+about
+dir
+
+clipboard
+dir
+
+dialog
+dir
+
+icons.png
+file
+
+
+
+
+2016-10-10T02:48:00.710000Z
+30df606419222c418c24d5cca47f66e5
+2016-05-30T02:25:08.112984Z
+3044
+zengjiuzhou
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10227
+
+icons_hidpi.png
+file
+
+
+
+
+2016-10-10T02:48:00.357000Z
+1f57f384a8331a0cd3b8dfadfb61f0cd
+2016-05-30T02:25:08.112984Z
+3044
+zengjiuzhou
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+34465
+
+image
+dir
+
+link
+dir
+
+magicline
+dir
+
+pastefromword
+dir
+
+scayt
+dir
+
+specialchar
+dir
+
+table
+dir
+
+tabletools
+dir
+
+wsc
+dir
+

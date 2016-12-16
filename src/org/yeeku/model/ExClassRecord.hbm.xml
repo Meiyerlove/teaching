@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="ExClassRecord"	table="ExClassRecord">
+
+		<id	name="id" column="ID">
+		   <generator class="identity"/>
+		</id>
+
+		<property name="teacherID" column="TeacherID" not-null="true" length="20"/>
+		<property name="teacherName" column="TeacherName" not-null="true" length="20"/>
+		<property name="consultant" column="Consultant"  length="20"/>
+		<property name="subject" column="Subject"  length="10"/>
+		<property name="stuNumber" column="StuNumber"  length="10"/>
+		<property name="roomID" column="RoomID"  length="10"/>
+		<property name="roomNo" column="RoomNo"  length="10"/>
+		<property name="classDate" column="ClassDate"  length="10"/>
+		
+		<property name="startTime" column="StartTime"  length="10"/>
+		<property name="endTime" column="EndTime"  length="10"/>
+		<property name="recordTime" column="RecordTime"  length="10"/>
+		
+		<property name="note" column="Note"  length="200"/>
+
+	</class>	
+</hibernate-mapping>

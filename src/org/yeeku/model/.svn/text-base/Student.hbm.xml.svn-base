@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="Student"	table="student">
+		<id	name="id" column="id">
+			<generator class="native"/>
+		</id>
+		<property name="sid" type="java.lang.String">
+            <column name="sid" length="45"/>
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="name" length="80"/>
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="email" length="80"/>
+        </property>
+        <property name="cellphone" type="java.lang.String">
+            <column name="cellphone" length="80"/>
+        </property>
+        <property name="classid" type="java.lang.String">
+            <column name="classid" length="80"/>
+        </property>
+        <property name="grade" type="java.lang.String">
+            <column name="grade" length="80"/>
+        </property>
+        <property name="classname" type="java.lang.String">
+            <column name="classname" length="200"/>
+        </property>
+        <property name="jzfid" type="java.lang.String">
+            <column name="jzfid" length="80"/>
+        </property>
+        <property name="jzfname" type="java.lang.String">
+            <column name="jzfname" length="80"/>
+        </property>
+        <property name="jzfcellphone" type="java.lang.String">
+            <column name="jzfcellphone" length="80"/>
+        </property>
+        <property name="jzmid" type="java.lang.String">
+            <column name="jzmid" length="80"/>
+        </property>
+        <property name="jzmname" type="java.lang.String">
+            <column name="jzmname" length="80"/>
+        </property>
+        <property name="jzmcellphone" type="java.lang.String">
+            <column name="jzmcellphone" length="80"/>
+        </property>
+        <property name="note" type="java.lang.String">
+            <column name="note" length="80"/>
+        </property>
+        <property name="idcard" type="java.lang.String">
+            <column name="idcard" length="80"/>
+        </property>
+        <property name="sex" type="java.lang.Integer">
+            <column name="sex" length="80"/>
+        </property>
+        <property name="majorname" type="java.lang.String">
+            <column name="majorname" length="80"/>
+        </property>
+        <property name="pyxing" type="java.lang.String">
+            <column name="pyxing" length="80"/>
+        </property>
+        <property name="pyname" type="java.lang.String">
+            <column name="pyname" length="80"/>
+        </property>
+        <property name="SCN" type="java.lang.String">
+            <column name="SCN" length="80"/>
+        </property>
+        <property name="birthday" type="java.lang.String">
+            <column name="birthday" length="80"/>
+        </property>
+        <property name="program" type="java.lang.String">
+            <column name="program" length="80"/>
+        </property>
+        <property name="assistant" type="java.lang.String">
+            <column name="assistant" length="80"/>
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="status" length="80"/>
+        </property>
+        <property name="dividestatus" type="java.lang.Integer">
+            <column name="dividestatus" length="10"/>
+        </property>
+	</class>	
+</hibernate-mapping>

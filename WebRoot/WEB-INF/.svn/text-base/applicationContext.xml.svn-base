@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">    
+	
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver">
+		</property>
+	    <!-- <property name="url" value="jdbc:mysql://120.24.175.81:3306/teaching?useUnicode=true&amp;characterEncoding=gbk"></property> -->
+		<!--  <property name="url" value="jdbc:mysql://120.24.175.81:3306/teaching?useUnicode=true&amp;characterEncoding=gbk"></property>-->
+	    <property name="url" value="jdbc:mysql://localhost:3306/teachingv1220160630?useUnicode=true&amp;characterEncoding=gbk"></property>
+	     <!--  <property name="url" value="jdbc:mysql://120.24.175.81:3306/teachingv1220160630?useUnicode=true&amp;characterEncoding=gbk"></property> -->
+		<property name="username" value="root"></property> 
+		 <property name="password" value="040145james"></property>  
+		<property name="maxActive" value="100"></property>
+		<property name="maxIdle" value="10"></property>
+	</bean>
+
+	<!--定义了Hibernate的SessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingResources">
+			<list>
+				<value>org/yeeku/model/User.hbm.xml</value>
+				<value>org/yeeku/model/Role.hbm.xml</value>
+				<value>org/yeeku/model/Right.hbm.xml</value>
+				<value>org/yeeku/model/RoleRight.hbm.xml</value>
+				<value>org/yeeku/model/Student.hbm.xml</value>
+				<value>org/yeeku/model/TClass.hbm.xml</value>
+				<value>org/yeeku/model/Assistant.hbm.xml</value>
+				<value>org/yeeku/model/Subject.hbm.xml</value>
+				<value>org/yeeku/model/Teacher.hbm.xml</value>
+				<value>org/yeeku/model/Exam.hbm.xml</value>
+				<value>org/yeeku/model/Score.hbm.xml</value>
+				<value>org/yeeku/model/Kecheng.hbm.xml</value>
+				<value>org/yeeku/model/Sec_Kecheng.hbm.xml</value>
+				<value>org/yeeku/model/Notice.hbm.xml</value>
+				<value>org/yeeku/model/Reward.hbm.xml</value>
+				<value>org/yeeku/model/Punish.hbm.xml</value>
+				<value>org/yeeku/model/Absence.hbm.xml</value>
+				<value>org/yeeku/model/Ielts.hbm.xml</value>
+				<value>org/yeeku/model/Advice.hbm.xml</value>
+				<value>org/yeeku/model/Adjust.hbm.xml</value>
+				<value>org/yeeku/model/Logging.hbm.xml</value>
+				<value>org/yeeku/model/HistoryStudent.hbm.xml</value>
+				<value>org/yeeku/model/Jzletter.hbm.xml</value>
+				<value>org/yeeku/model/EnterApply.hbm.xml</value>
+				<value>org/yeeku/model/Exampj.hbm.xml</value>
+				<value>org/yeeku/model/SystemConfig.hbm.xml</value>
+				<value>org/yeeku/model/Goods.hbm.xml</value>
+				<value>org/yeeku/model/Kechengversion.hbm.xml</value>
+				<value>org/yeeku/model/ScoreNew.hbm.xml</value>
+				<value>org/yeeku/model/Major.hbm.xml</value>
+				<value>org/yeeku/model/Classroom.hbm.xml</value>
+				<value>org/yeeku/model/LetterTemplate.hbm.xml</value>
+				<!-- 下面的代码由Alan增加Begin-->	
+				<value>org/yeeku/model/ClassroomApply.hbm.xml</value>
+                <!-- 上面的代码由Alan增加End -->
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.jdbc.batch_size">10</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+
+	<bean id="transactionInterceptor"
+		class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<!--  事务拦截器bean需要依赖注入一个事务管理器 -->
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="transactionAttributes">
+			<!--  下面定义事务传播属性-->
+			<props>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 定义BeanNameAutoProxyCreator-->
+	<bean
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<!--  指定对满足哪些bean name的bean自动生成业务代理 -->
+		<property name="beanNames">
+			<!--  下面是所有需要自动创建事务代理的bean-->
+			<list>
+				<value>mgr</value>
+			</list>
+			<!--  此处可增加其他需要自动创建事务代理的bean-->
+		</property>
+		<!--  下面定义BeanNameAutoProxyCreator所需的事务拦截器-->
+		<property name="interceptorNames">
+			<list>
+				<!-- 此处可增加其他新的Interceptor -->
+				<value>transactionInterceptor</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="mgr" class="org.yeeku.service.impl.UserManagerImpl">
+		<property name="userDao" ref="userDao" />
+	</bean>
+	
+	<bean id="smgr" class="org.yeeku.service.impl.StudentListManagerImpl">
+		<property name="userDao" ref="userDao" />
+	</bean>
+
+	<bean id="baseDaoTea" class="org.yeeku.dao.BaseDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="combiz" class="org.yeeku.common.CommonBiz">
+		<property name="baseDao" ref="baseDaoTea"></property>
+	</bean>
+
+	<bean id="userDao" class="org.yeeku.dao.hibernate.UserDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean name="job1" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass" value="org.yeeku.job.Job1" />
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="timeout" value="0" />
+			</map>
+		</property>
+	</bean>
+	
+
+	<bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail" ref="job1" />
+		<property name="startDelay" value="0" />
+		<!--
+			调度工厂实例化后，经过0秒开始执行调度
+		-->
+		 <property name="repeatInterval" value="3600000" />
+		
+		<!--
+			每一个小时调度一次
+		-->
+	</bean>
+
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="simpleTrigger" />
+			</list>
+		</property>
+	</bean> 
+	<bean name="noticejob" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass" value="org.yeeku.job.NoticeJob" />
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="timeout" value="0" />
+			</map>
+		</property>
+	</bean>
+	<bean id="simpleTrigger1" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail" ref="noticejob" />
+		<property name="startDelay" value="0" />
+		<!--
+			调度工厂实例化后，经过2min开始执行调度
+		-->
+		 <property name="repeatInterval" value="500000" />
+
+
+		<!--
+			每一个小时调度一次
+		-->
+	</bean>
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="simpleTrigger1" />
+			</list>
+		</property>
+	</bean> 
+    
+	
+</beans>

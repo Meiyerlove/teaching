@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="Major"	 table="major">
+		<id	name="id" column="id">
+			<generator class="native"/>
+		</id>
+		<property name="majorid" type="java.lang.String">
+            <column name="majorid" length="45"/>
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="name" length="80"/>
+        </property>
+        <property name="text" type="java.lang.String">
+            <column name="text" length="800"/>
+        </property>
+	</class>	
+</hibernate-mapping>

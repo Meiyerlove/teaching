@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="Reward"	table="reward">
+		<id	name="id" column="id">
+			<generator class="native"/>
+		</id>
+        <property name="sid" type="java.lang.String">
+            <column name="sid" length="80"/>
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="name" length="80"/>
+        </property>
+        <property name="rdate" type="java.util.Date">
+            <column name="rdate" length="80"/>
+        </property>
+         <property name="title" type="java.lang.String">
+            <column name="title" length="200"/>
+        </property>
+         <property name="reason" type="java.lang.String">
+            <column name="reason" length="200"/>
+        </property>
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,1962 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<constant name="struts.action.excludePattern" value="/services/.*"/> 
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+
+             
+       <package name="json" extends="json-default">
+        <!-- 下面定义的结果对所有的Action都有效 -->
+        <!--  
+		<global-results>
+			<result name="exception">/error.jsp</result>
+			<result name="success">/frame.jsp</result>
+		</global-results> -->
+		
+		
+
+		<global-exception-mappings>
+			<!-- 指Action抛出Exception异常时，转入名为exception的结果。 -->
+			<exception-mapping exception="java.lang.Exception" result="exception"/>
+		</global-exception-mappings>
+
+        <!-- 
+		<action name="*" class="org.yeeku.action.{0}Action">
+			<result name="input">/{0}.jsp</result>	
+			<result name="failure">/{0}.jsp</result>
+        </action> -->
+
+		<!--<action name="validateName" class="org.yeeku.action.ValidateNameAction">
+			<result type="json"/>
+		</action>
+		
+
+		-->
+		
+		<action name="add" class="com.cxjava.action.AllAction" method="add">
+			<result type="json" name="success">/index.jsp</result>
+		</action>
+		<!-- <action name="delete" class="com.cxjava.action.AllAction" method="delete">
+			<result type="json" name="success"></result>
+		</action>
+		<action name="modify" class="com.cxjava.action.AllAction" method="modify">
+			<result type="json" name="success"/>
+		</action>
+		<action name="all" class="com.cxjava.action.AllAction" method="All">
+			<result type="json" name="success"/>
+		</action> -->
+		<action name="t_all" class="com.cxjava.action.AllAction" method="T_All">
+			<result type="json" name="success"/>
+		</action>
+		<action name="FindStudentInfo" class="com.cxjava.action.StudentInfoManagerAction" method="findStudentInfo">
+			<result type="json" name="success"/>
+		</action>
+		<action name="FindExamInfo" class="com.cxjava.action.ExamManagerAction" method="findExamInfo">
+			<result type="json" name="success"/>
+		</action>
+		<action name="JiaowuNotice" class="com.cxjava.action.NoticeListAction" method="jiaowu_notice">
+			<result type="json" name="success"/>
+		</action>
+		<action name="Noticeall" class="com.cxjava.action.NoticeListAction" method="noticeall">
+			<result type="json" name="success"/>
+		</action>
+		<action name="Assistantnotice" class="com.cxjava.action.NoticeListAction" method="assistantnotice">
+			<result type="json" name="success"/>
+		</action>
+		<!-- <action name="Assistant_notice" class="com.cxjava.action.NoticeListAction" method="assistant_notice"> -->
+		<action name="FindAllAdvice" class="com.cxjava.action.AdviceBangongshiAction" method="findAllAdvice">
+			<result type="json" name="success"/>
+		</action>
+		<action name="FindAdviceById" class="com.cxjava.action.AdviceBangongshiAction" method="findAdviceById">
+			<result type="json" name="success"/>
+		</action>
+		<action name="Notice" class="com.cxjava.action.NoticeListAction" method="notice">
+			<result type="json" name="success"/>
+		</action>
+		 <action name="Check_Notice" class="org.yeeku.action.SysNoticeAction" method="check_notice">
+		       <result type="json" name="success"/>
+		 </action> 
+		  
+		<action name="Teachernotice" class="com.cxjava.action.NoticeListAction" method="teachernotice">
+			<result type="json" name="success"/>
+		</action>
+		<action name="JiaowuSelfnotice" class="org.yeeku.action.SysNoticeAction" method="jiaowuself">
+			<result name="jiaowuself">/jiaowunotice.jsp</result>
+		</action>
+		
+		<action name="JiaowuAssistant" class="org.yeeku.action.SysNoticeAction" method="jiaowuAssistant">
+			<result name="jiaowuAssistant">/assistantnotice.jsp</result>
+		</action>
+		<action name="JiaowuTeacher" class="org.yeeku.action.SysNoticeAction" method="jiaowuTeacher">
+			<result name="jiaowuTeacher">/teachernotice.jsp</result>
+		</action>
+		<action name="TeacherAll" class="com.cxjava.action.TeacherAction" method="teacherall">
+			<result type="json" name="success"/>
+		</action>
+		<action name="AssistantAll" class="com.cxjava.action.AssistantAction" method="assistantall">
+			<result type="json" name="success"/>
+		</action>
+		<action name="Alluser" class="com.cxjava.action.AlluserAction" method="alluser">
+			<result type="json" name="success"/>
+		</action>
+		<action name="SubjectAll" class="com.cxjava.action.SubjectAction" method="subjectall">
+			<result type="json" name="success"/>
+		</action>
+		<action name="JiaoWuCheckRoile" class="org.yeeku.action.SysNoticeAction" method="jiaowucheckroile">
+			<result name="jiaowucheckroile">/jiaowucheckroile.jsp</result>
+			<result name="input">/jiaowucheckroile.jsp</result>
+			<result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="Login" class="org.yeeku.action.LoginAction">
+				<result name="exception">/error.jsp</result>
+			    <result name="success">/home.jsp</result>
+			    <result name="user">/home.jsp</result>
+			    <result name="agent1">/home.jsp</result>
+			    <result name="user_ex">/home.jsp</result>
+			    <result name="user_acti">/home.jsp</result>
+			    <result name="failure">/logint.jsp</result>
+			    <result name="input">/logint.jsp</result>
+		</action>
+		
+		<action name="ToLogin" class="org.yeeku.action.LoginAction" method = "toLogin">
+				<result name="exception">/error.jsp</result>
+			    <result name="toLogin">/logint.jsp</result>
+			    <result name="input">/logint.jsp</result>
+		</action>
+		
+		<action name="ToUserList" class="org.yeeku.action.UserAction" method = "toUserList">
+			    <result name="userList">/tuserList.jsp</result>
+			    <result name="user">/tuser.jsp</result>
+			    <result name="input">/tuserList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToUserAdd" class="org.yeeku.action.UserAction" method = "toUserAdd">
+			    <result name="toUserAdd">/tuserAdd.jsp</result>
+			    <result name="input">/tuserAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoUserAdd" class="org.yeeku.action.UserAction" method = "doUserAdd">
+			    <result name="doUserAdd">/tuserAdd.jsp</result>
+			    <result name="doUserEdit">/tuserEdit.jsp</result>
+			    <result name="input">/tuserAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="CheckPassword" class="org.yeeku.action.UserAction" method = "checkPassword">
+			    <result type="json" name="success"/>
+		</action>
+		
+		<action name="ToUserEdit" class="org.yeeku.action.UserAction" method = "toUserEdit">
+			    <result name="toUserEdit">/tuserEdit.jsp</result>
+			    <result name="input">/tuserEdit.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DeleteUser" class="org.yeeku.action.UserAction" method = "deleteUser">
+			    <result name="deleteUser" type="redirect">ToUserList.action</result>
+			    <result name="input">/userList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToRoleList" class="org.yeeku.action.RoleAction" method = "toRoleList">
+			    <result name="roleList">/roleList.jsp</result>
+			    <result name="input">/roleList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToRoleAdd" class="org.yeeku.action.RoleAction" method = "toRoleAdd">
+			    <result name="toRoleAdd">/roleAdd.jsp</result>
+			    <result name="input">/roleAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoRoleAdd" class="org.yeeku.action.RoleAction" method = "doRoleAdd">
+			    <result name="doRoleAdd">/roleAdd.jsp</result>
+			    <result name="doRoleEdit">/roleEdit.jsp</result>
+			    <result name="input">/roleAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToRoleEdit" class="org.yeeku.action.RoleAction" method = "toRoleEdit">
+			    <result name="toRoleEdit">/roleEdit.jsp</result>
+			    <result name="input">/roleEdit.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToRoleRightList" class="org.yeeku.action.RoleAction" method = "toRoleRightList">
+			    <result name="roleRightList">/roleRightList.jsp</result>
+			    <result name="input">/roleRightList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+	    <action name="ToRoleAssignRight" class="org.yeeku.action.RoleAction" method = "toRoleAssignRight">
+	            
+			    <result name="roleAssignRight">/roleAssignRight.jsp</result>
+			    <result name="input">/roleAssignRight.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoRightAdd" class="org.yeeku.action.RoleAction" method = "doRoleRightAdd">
+
+		      <result name="savedirect" type="redirectAction">
+			      <param name="actionName">ToRoleAssignRight.action</param>
+			      <param name="roleid">${roleid}</param>
+		      </result> 
+			    <result name="doRoleRightAdd">/roleAssignRight.jsp</result>
+			    <result name="input">/roleAssignRight.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToStudentList" class="org.yeeku.action.ManageAction" method = "toStudentList">
+			    <result name="studentList">/studentList.jsp</result>
+			    <result name="input">/studentList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToStudentAdd" class="org.yeeku.action.ManageAction" method = "toStudentAdd">
+			    <result name="toStudentAdd">/studentAdd.jsp</result>
+			    <result name="input">/studentAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToStudentEdit" class="org.yeeku.action.ManageAction" method = "toStudentEdit">
+			    <result name="toStudentEdit">/studentEdit.jsp</result>
+			    <result name="toStudentEditJiaowu">/studentEditJiaowu.jsp</result>
+			    <result name="input">/studentEdit.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoStudentAdd" class="org.yeeku.action.ManageAction" method = "doStudentAdd">
+			    <result name="doStudentAdd">/studentAdd.jsp</result>
+			    <result name="input">/studentAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoStudentEdit" class="org.yeeku.action.ManageAction" method = "doStudentEdit">
+			    <result name="doStudentEdit">/studentEdit.jsp</result>
+			    <result name="toStudentEditJiaowu">/studentEditJiaowu.jsp</result>
+			    <result name="input">/studentEdit.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DeleteStudent" class="org.yeeku.action.ManageAction" method = "deleteStudent">
+			    <result name="deleteStudent" type="redirect">ToStudentList.action</result>
+			    <result name="input">/studentList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ImportStudent" class="org.yeeku.action.ManageAction" method = "importStudent">
+			    <result name="result">/studentList.jsp</result>
+			    <result name="input">/studentList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToExamAdd" class="org.yeeku.action.ManageAction" method = "toExamAdd">
+			    <result name="toExamAdd">/examAdd.jsp</result>
+			    <result name="input">/examAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToExamList" class="org.yeeku.action.ManageAction" method = "toExamList">
+			    <result name="toExamList">/examList.jsp</result>
+			    <result name="input">/examList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToExamListBySubject" class="org.yeeku.action.ManageAction" method = "toExamListBySubject">
+			    <result name="toExamList">/examList.jsp</result>
+			    <result name="input">/examList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DefaultSelect" class="org.yeeku.action.ManageAction" method = "defaultSelect">
+			   	<result type="json" name="success"/>
+		</action>
+		
+		<action name="ToExamListTea" class="org.yeeku.action.ManageAction" method = "toExamListTea">
+			    <result name="toExamListTea">/examListTea.jsp</result>
+			    <result name="input">/examListTea.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToExamListManage" class="org.yeeku.action.ManageAction" method = "toExamListManage">
+			    <result name="toExamListManage">/examListManage.jsp</result>
+			    <result name="input">/examListManage.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoExamAdd" class="org.yeeku.action.ManageAction" method = "doExamAdd">
+			    <result name="doExamAdd" type="redirect">ToExamList.action</result>
+			    <result name="input" type="redirect">ToExamList.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SysNotice" class="org.yeeku.action.SysNoticeAction" method = "getAdjustNoticeList">
+			    <result name="adjustNoticeList">/adjustNoticeList.jsp</result>
+			    <result name="input">/adjustNoticeList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="NoticeDetails" class="org.yeeku.action.SysNoticeAction" method = "noticeDetails">
+			    <result name="noticeDetails">/noticeDetails.jsp</result>
+			    <result name="input">/noticeDetails.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<!-- <action name="NoticeDetailses" class="org.yeeku.action.SysNoticeAction" method = "noticeDetailses">
+			    <result name="noticeDetailses">/noticeDetails.jsp</result>
+			    <result name="input">/noticeDetails.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action> -->
+		<action name="CheckNotice" class="org.yeeku.action.SysNoticeAction" method = "checkNotice">
+			    <result name="checkNotice">/checkNotice.jsp</result>
+			    <result name="input">/checkNotice.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="KeChengVersion" class="org.yeeku.action.SysNoticeAction" method = "kechengmanage">
+			    <result name="kechengmanage">/keChengManage.jsp</result>
+			    <result name="input">/keChengManage.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="AddKechengversion" class="org.yeeku.action.SysNoticeAction" method = "addKechengversion">
+			    <result name="addKechengversion">/addkeChengversion.jsp</result>
+			    <result name="input">/addkeChengversion.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="UpdateKechengversion" class="org.yeeku.action.SysNoticeAction" method = "updateKechengversion">
+			    <result name="updateKechengversion">/updatekeChengversion.jsp</result>
+			    <result name="input">/updatekeChengversion.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="DeleteKechengversion" class="org.yeeku.action.SysNoticeAction" method = "deleteKechengversion">
+			    <result name="deleteKechengversion" type="redirect">KeChengVersion.action</result>
+			     <result name="input">KeChengVersion.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="DokechengversionAdd" class="org.yeeku.action.SysNoticeAction" method = "dokechengversionAdd">
+			    <result name="dokechengversionAdd" type="redirect">KeChengVersion.action</result>
+			    <result name="input">KeChengVersion.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="ReturnNotice" class="org.yeeku.action.SysNoticeAction" method = "returnNotice">
+			    <result name="returnNotice">/returnNotice.jsp</result>
+			    <result name="input">/returnNotice.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="DoNoticeUpdate" class="org.yeeku.action.SysNoticeAction" method = "doNoticeUpdate">
+			    <result name="doNoticeUpdate" type="redirect">ToMyNoticeList.action</result>
+			    <result name="input">ToMyNoticeList.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="DeleteNotice" class="org.yeeku.action.SysNoticeAction" method = "deleteNotice">
+			    <result name="deleteNotice" type="redirect">ToMyNoticeList.action</result>
+			    <result name="input">ToMyNoticeList.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToExamEntering" class="org.yeeku.action.ManageAction" method = "toExamEntering">
+			    <result name="toExamEntering">/examEntering.jsp</result>
+			    <result name="input">/examEntering.jsp</result>
+			    <result name="exception">/error.jsp</result>
+        </action>
+	<action name="DoExamUpdate" class="org.yeeku.action.ManageAction" method="doExamUpdate">
+		<result name="doExamUpdate" type="redirectAction">
+			<param name="actionName">ToExamEntering.action</param>
+			<param name="examid">${examid}</param>
+		</result>
+		<result name="input">/examEntering.jsp</result>
+		<result name="exception">/error.jsp</result>
+	</action>
+	    
+	    <action name="ToScoreInput" class="org.yeeku.action.ManageAction" method = "toScoreInput">
+			    <result name="toScoreInput">/scoreInput.jsp</result>
+			    <result name="toScoreInputOther">/scoreInputOther.jsp</result>
+			    <result name="input">/scoreInput.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="CancelRelease" class="org.yeeku.action.ManageAction" method = "cancelRelease">
+			    <result name="cancelRelease" type="redirect">ToExamListManage.action</result>
+			    <result name="input" type="redirect">ToExamListManage.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoScoreInput" class="org.yeeku.action.ManageAction" method = "doScoreInput">
+			    <result name="doScoreInput" type="redirect">ToExamListTea.action</result>
+			    <result name="doScoreInputManage" type="redirect">ToExamListManage.action</result>
+			    <result name="input" type="redirect">ToExamListTea.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ExportResultExcel" class="org.yeeku.action.ManageAction" method = "exportResultExcel">
+			    <result type="json" name="success"/>
+		</action>
+		
+		<action name="DownloadExcel" class="org.yeeku.action.ManageAction" method = "downloadExcel">
+			    <result type="json" name="success"/>
+		</action>
+		
+		<action name="DoHandleInput" class="org.yeeku.action.ManageAction" method = "doHandleInput">
+				<result name="doHandleInput" type="redirectAction">
+				      <param name="actionName">ToScoreInput.action</param>
+				      <param name="examid">${examid}</param>
+	      		</result> 
+			    <result name="doScoreInputManage" type="redirect">ToExamListManage.action</result>
+			    <result name="toScoreCompare">/scoreCompare.jsp</result>
+			    <result name="input" type="redirect">ToExamListTea.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoScoreHandle" class="org.yeeku.action.ManageAction" method = "doScoreHandle">
+			    <result name="doScoreHandle" type="redirect">ToExamListTea.action</result>
+			    <result name="doScoreInputManage" type="redirect">ToExamListManage.action</result>
+			    <result name="input" type="redirect">ToExamListTea.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoPublicInput" class="org.yeeku.action.ManageAction" method = "doPublicInput">
+			    <result name="doPublicInput" type="redirect">ToExamListManage.action</result>
+			    <result name="input" type="redirect">ToExamListManage.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+	   <!-- <action name="ToMyExamList" class="org.yeeku.action.ManageAction" method = "toMyExamList">
+			    <result name="toMyExamList">/toMyExamList.jsp</result>
+			    <result name="input">toMyExamList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action> -->
+		
+		
+		<action name="ToAdjustClassAssistant" class="org.yeeku.action.ManageAction" method = "toAdjustClassAssistant">
+			    <result name="toAdjustClassAssistant">classAssistant.jsp</result>
+			    <result name="input">classAssistant.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToClassList" class="org.yeeku.action.ManageAction" method = "toClassList">
+			    <result name="toClassList">classList.jsp</result>
+			    <result name="input">classList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoAdjustClassAssistant" class="org.yeeku.action.ManageAction" method = "doAdjustClassAssistant">
+			    <result name="doAdjustClassAssistant" type="redirect">ToClassList.action</result>
+			    <result name="input">classAssistant.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<!-- <action name="ToMyExamList" class="org.yeeku.action.ManageAction" method = "toMyExamList">
+			    <result name="toMyExamList">/myExamList.jsp</result>
+			    <result name="input">/myExamList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action> -->
+		
+		 <action name="ToMyExamList" class="org.yeeku.action.AchievementAction" method = "toMyExamList">
+			    <result name="toMyExamList">/myExamList.jsp</result>
+			    <result name="input">myExamList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		 <action name="ExportExcelScore" class="org.yeeku.action.AchievementAction" method = "exportexcelscore">
+			    <result name="exportexcelscore" type="redirectAction">
+					 <param name="actionName">ToMyExamList.action</param>
+				     <param name="id">${id}</param>
+					 <param name="title">${title}</param>
+			    </result> 
+			    <result name="input">myExamList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		 <action name="ExportExcelResult" class="org.yeeku.action.AchievementAction" method = "exportexcelresult">
+			    <result name="exportexcelresult" type="redirectAction">
+					 <param name="actionName">QueryClassSubject.action</param>
+				      <param name="classId">${classId}</param>
+					 <param name="subjectName">${subjectName}</param>
+			    </result> 
+			    <result name="input">myExamList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		 <action name="ExportExcelClassResult" class="org.yeeku.action.AchievementAction" method = "exportexcelclassresult">
+			    <result name="exportexcelclassresult">myExamList.jsp</result> 
+			    <result name="input">myExamList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		 <action name="ExportExcelAllClassResult" class="org.yeeku.action.AchievementAction" method = "exportexcelallclassresult">
+			    <result name="exportexcelallclassresult">myExamList.jsp</result> 
+			    <result name="input">myExamList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		 <action name="CheckStudentScore" class="org.yeeku.action.AchievementAction" method = "checkstudentscore">
+			    <result name="checkstudentscore">/studentExamList.jsp</result>
+			    <result name="input">/studentExamList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		 <action name="QueryClassSubject" class="org.yeeku.action.AchievementAction" method = "queryclasssubject">
+			    <result name="queryclasssubject">/myExamList.jsp</result>
+			    <result name="input">/myExamList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="CheckClassScore" class="org.yeeku.action.AchievementAction" method = "checkclassscore">
+			    <result name="checkclassscore">/classExamList.jsp</result>
+			    <result name="input">/classExamList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="ToManageClassList" class="org.yeeku.action.AchievementAction" method = "manageclasslist">
+			    <result name="manageclasslist">/manageclasslist.jsp</result>
+			    <result name="input">/manageclasslist.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="AddTclass" class="org.yeeku.action.AchievementAction" method = "addtclass">
+			    <result name="addtclass">/addclasslist.jsp</result>
+			    <result name="input">/addcladsslist.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="DoTclasstAdd" class="org.yeeku.action.AchievementAction" method = "dotclasstadd">
+			    <result name="dotclasstadd" type="redirect">AddTclass.action</result>
+			    <result name="input">/addcladsslist.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="ToClassEnter" class="org.yeeku.action.AchievementAction" method = "toclassenter">
+			    <result name="toclassenter">toclassenter.jsp</result>
+			    <result name="toclassdelete" type="redirect">ToManageClassList.action</result>
+			    <result name="input">/toclassenter.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="ToClassUpdate" class="org.yeeku.action.AchievementAction" method = "toclassupdate">
+			    <result name="toclassupdate">toclassupdate.jsp</result>
+			    <result name="input">/toclassupdate.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="DetailStudent" class="org.yeeku.action.AchievementAction" method = "detailstudent">
+			    <result name="detailstudent">detailstudent.jsp</result>
+			    <result name="input">/detailstudent.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="DoUpdateTclass" class="org.yeeku.action.AchievementAction" method = "doupdatetclass">
+			    <result name="doupdatetclass" type="redirect">ToManageClassList.action</result>
+			    <result name="input">/toclassupdate.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="CheckClassname" class="org.yeeku.action.AchievementAction" method = "checkclassname">
+			    <result type="json" name="success"/>
+		</action>
+		<action name="CheckClasscid" class="org.yeeku.action.AchievementAction" method = "checkclasscid">
+			    <result type="json" name="success"/>
+		</action>
+		<action name="ToManagerTeacherList" class="org.yeeku.action.AchievementAction" method = "tomanagerteacherlist">
+			    <result name="tomanagerteacherlist">/toManagerTeacherlist.jsp</result>
+			    <result name="input">/toManagerTeacherlist.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="ToManagerSubjectList" class="org.yeeku.action.AchievementAction" method = "tomanagersubjectlist">
+			    <result name="tomanagersubjectlist">/tomanagersubjectlist.jsp</result>
+			    <result name="input">/tomanagersubjectlist.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="DoSubjectAdd" class="org.yeeku.action.AchievementAction" method="dosubjectadd">
+			 <result name="dosubjectadd" type="redirect">ToManagerSubjectList.action</result>
+			 <result name="input">/tomanagersubjectlist.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action>
+		<action name="DoSubjectUpdate" class="org.yeeku.action.AchievementAction" method="dosubjectupdate">
+			 <result name="dosubjectupdate">/dosubjectupdate.jsp</result>
+			 <result name="subjectupdate" type="redirect">ToManagerSubjectList.action</result>
+			 <result name="input">/dosubjectupdate.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="CheckTeachername" class="org.yeeku.action.AchievementAction" method="checkteachername">
+			 <result type="json" name="success"/>
+		</action>		
+		<action name="CheckTeachertid" class="org.yeeku.action.AchievementAction" method="checkteachertid">
+			 <result type="json" name="success"/>
+		</action>		
+		<action name="CheckEnglishName" class="org.yeeku.action.AchievementAction" method="checkenglishname">
+			 <result type="json" name="success"/>
+		</action>		
+		<action name="DoTeacherAdd" class="org.yeeku.action.AchievementAction" method="doteacheradd">
+			 <result name="doteacheradd" type="redirect">ToManagerTeacherList.action</result>
+			 <result name="input">/toManagerTeacherlist.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action>		
+		<action name="ToTeacherUpdate" class="org.yeeku.action.AchievementAction" method="toteacherupdate">
+			 <result name="toteacherupdate">/toteacherupdate.jsp</result>
+			 <result name="input">/toteacherupdate.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action>		
+		<action name="DoTeacherUpdate" class="org.yeeku.action.AchievementAction" method="doteacherupdate">
+			 <result name="doteacherupdate" type="redirect">ToManagerTeacherList.action</result>
+			 <result name="input">/toManagerTeacherlist.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action>		
+		<action name="ToManagerAssistantList" class="org.yeeku.action.AchievementAction" method="tomanagerassistantlist">
+			 <result name="tomanagerassistantlist">/toManagerAssistantlist.jsp</result>
+			 <result name="input">/toManagerAssistantlist.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action>		
+		<action name="CheckAssistantname" class="org.yeeku.action.AchievementAction" method="checkassistantname">
+			 <result type="json" name="success"/>
+		</action>		
+		<action name="Checkassistantaid" class="org.yeeku.action.AchievementAction" method="checkassistantaid">
+			 <result type="json" name="success"/>
+		</action>	
+	    <action name="DoassistantAdd" class="org.yeeku.action.AchievementAction" method="doassistantadd">
+			 <result name="doassistantadd" type="redirect">ToManagerAssistantList.action</result>
+			 <result name="input">/toManagerAssistantlist.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action>
+	    <action name="ToAssistantUpdate" class="org.yeeku.action.AchievementAction" method="toassistantupdate">
+			 <result name="toassistantupdate">/toassistantupdate.jsp</result>
+			 <result name="input">/toassistantupdate.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action>
+	    <action name="DoAssistantUpdate" class="org.yeeku.action.AchievementAction" method="doassistantupdate">
+			 <result name="doassistantupdate" type="redirect">ToManagerAssistantList.action</result>
+			 <result name="input">/toManagerAssistantlist.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action>
+	    <action name="ToManagerClassroomList" class="org.yeeku.action.AchievementAction" method="tomanagerclassroomlist">
+			 <result name="tomanagerclassroomlist" >/toManagerClassroomlist.jsp</result>
+			 <result name="input">/toManagerClassroomlist.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action>
+	    <action name="CheckCid" class="org.yeeku.action.AchievementAction" method="checkcid">
+			<result type="json" name="success"/>
+		</action>
+	    <action name="CheckClassroomid" class="org.yeeku.action.AchievementAction" method="checkclassroomid">
+			<result type="json" name="success"/>
+		</action>
+	    <action name="CheckClasscidroomid" class="org.yeeku.action.AchievementAction" method="checkclasscidroomid">
+			<result type="json" name="success"/>
+		</action>
+	    <action name="CheckClassroom" class="org.yeeku.action.AchievementAction" method="checkclassroom">
+			<result type="json" name="success"/>
+		</action>
+	    <action name="CheckExistSubjectName" class="org.yeeku.action.AchievementAction" method="checkexistsubjectname">
+			<result type="json" name="success"/>
+		</action>
+	    <action name="CheckExistSubid" class="org.yeeku.action.AchievementAction" method="checkexistsubid">
+			<result type="json" name="success"/>
+		</action>
+	    <action name="ClassroomAll" class="com.cxjava.action.ClassroomAction" method="classroomall">
+			<result type="json" name="success"/>
+		</action>
+	    <action name="CheckSubjectname" class="org.yeeku.action.AchievementAction" method="checksubjectname">
+			<result type="json" name="success"/>
+		</action>
+	    <action name="CheckSubjectid" class="org.yeeku.action.AchievementAction" method="checksubjectid">
+			<result type="json" name="success"/>
+		</action>
+		 <action name="DoClassroomAdd" class="org.yeeku.action.AchievementAction" method="doclassroomadd">
+			 <result name="doclassroomadd" type="redirect">ToManagerClassroomList.action</result>
+			 <result name="input">/toManagerClassroomlist.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action>
+		 <action name="ToClassroomUpdate" class="org.yeeku.action.AchievementAction" method="toclassroomupdate">
+			 <result name="toclassroomupdate">/toclassroomupdate.jsp</result>
+			 <result name="input">/toclassroomupdate</result>
+			 <result name="exception">/error.jsp</result>
+		</action>
+		 <action name="DoClassroomUpdate" class="org.yeeku.action.AchievementAction" method="doclassroomupdate">
+			 <result name="doclassroomupdate" type="redirect">ToManagerClassroomList.action</result>
+			 <result name="input">/toManagerAssistantlist.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action>
+		 <action name="ToManagerParentLetterTemplateList" class="org.yeeku.action.AchievementAction" method="tomanagerparentlettertemplatelist">
+			 <result name="tomanagerparentlettertemplatelist">/toManagerParentLettertemplatelist.jsp</result>
+			 <result name="input">/toManagerParentLettertemplatelist.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action>
+		 <action name="ToSaveTemplate" class="org.yeeku.action.AchievementAction" method="tosavetemplate">
+			 <result name="tosavetemplate" type="redirect">ToManagerParentLetterTemplateList.action</result>
+			 <result name="input">/toManagerParentLettertemplatelist.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action>
+		 <action name="ToLetterTemplatelook" class="org.yeeku.action.AchievementAction" method="toLettertemplatelook">
+			 <result name="toLettertemplatelook">/toLettertemplatelook.jsp</result>
+			 <result name="totettertemplatedelete" type="redirect">ToManagerParentLetterTemplateList.action</result>
+			 <result name="input">/toLettertemplatelook.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action>
+		 <action name="ToUpdateTemplate" class="org.yeeku.action.AchievementAction" method="toupdatetemplate">
+			 <result name="toupdatetemplate" type="redirect">ToManagerParentLetterTemplateList.action</result>
+			 <result name="input">/toManagerParentLettertemplatelist.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action>
+		 <action name="ToManagerParentLetterList" class="org.yeeku.action.AchievementAction" method="tomanagerparentletterlist">
+			 <result name="tomanagerparentletterlist">tomanagerparentletterlist.jsp</result>
+			 <result name="input">/toManagerParentLettertemplatelist.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action>
+		 <action name="DoAllSelectTemplate" class="org.yeeku.action.AchievementAction" method="doallselecttemplate">
+			 <result name="doallselecttemplate">/doallselecttemplate.jsp</result>
+			 <result name="input">/doallselecttemplate.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action>
+		 <action name="DoenterClass" class="org.yeeku.action.AchievementAction" method="doenterClass">
+			 <result name="doenterClass">/doenterClass.jsp</result>
+			 <result name="input">/doenterClass.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action>
+		 <action name="DoAllSendTemplate" class="org.yeeku.action.AchievementAction" method="doallsendtemplate">
+			 <result name="doallsendtemplate" type="redirect">ToManagerParentLetterList.action</result>
+			 <result name="input">/toManagerParentLettertemplatelist.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action>
+		 <action name="DoAllJzletterList" class="org.yeeku.action.AchievementAction" method="doalljzletterlist">
+			 <result name="doalljzletterlist">/doalljzletterlist.jsp</result>
+			 <result name="input">/doalljzletterlist.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action>
+		 <action name="UpdateJzletter" class="org.yeeku.action.AchievementAction" method="updatejzletter">
+			 <result name="updatejzletter">/updatejzletter.jsp</result>
+			 <result name="input">/updatejzletter.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		</action> 
+		 <action name="ToUpdateJzletter" class="org.yeeku.action.AchievementAction" method="toupdatejzletter">
+			 <result name="toupdatejzletter" type="redirect">DoAllJzletterList.action</result>
+			 <result name="tolookjzletter" type="redirect">DoAllJzletterList.action</result>
+			 <result name="input">/updatejzletter.jsp</result>
+			 <result name="exception">/error.jsp</result>
+		 </action>
+          
+		<action name="ToScore" class="org.yeeku.action.ManageAction" method = "toScore">
+			    <result name="toScore">/score.jsp</result>
+			    <result name="input">/score.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="ToKechengList" class="org.yeeku.action.ManageAction" method = "toKechengList">
+			    <result name="toKechengList">/kechengList.jsp</result>
+			    <result name="input">/studentList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="GetVersionKecheng" class="org.yeeku.action.ManageAction" method = "getVersionKecheng">
+			    <result name="toKechengList">/kechengList.jsp</result>
+			    <result name="input">/studentList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ImportKecheng" class="org.yeeku.action.ManageAction" method = "importKecheng">
+			    <result name="result">/kechengList.jsp</result>
+			    <result name="input">/kechengList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToKechengAdd" class="org.yeeku.action.KechengAction" method = "toKechengAdd">
+			    <result name="toKechengAdd">/kechengAdd.jsp</result>
+			    <result name="input">/kechengAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="DoKechengAdd" class="org.yeeku.action.KechengAction" method = "doKechengAdd">
+			    <result name="doKechengAdd">/kechengAdd.jsp</result>
+			    <result name="input">/kechengAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DeleteKecheng" class="org.yeeku.action.KechengAction" method = "deleteKecheng">
+			   <result name="deleteKecheng" type="redirectAction">
+					<param name="actionName">ToKechengList.action</param>
+					<param name="versions">${versions}</param>
+			 </result> 
+	         <result name="exception">/error.jsp</result> 
+		</action>
+		
+		<action name="ToNoticeList" class="org.yeeku.action.StudentAction" method = "toNoticeList">
+			    <result name="toNoticeList">/noticeList.jsp</result>
+			    <result name="input">/noticeList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToStudentInfo" class="org.yeeku.action.StudentAction" method = "toStudentInfo">
+			    <result name="toStudentInfo">/studentInfo.jsp</result>
+			    <result name="input">/studentInfo.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToStudentScore" class="org.yeeku.action.StudentAction" method = "toStudentScore">
+			    <result name="toStudentScore">/studentScore.jsp</result>
+			    <result name="input">/studentScore.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToStudentAbsence" class="org.yeeku.action.StudentAction" method = "toStudentAbsence">
+			    <result name="toStudentAbsence">/studentAbsence.jsp</result>
+			    <result name="input">/studentAbsence.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToStudentJC" class="org.yeeku.action.StudentAction" method = "toStudentjc">
+			    <result name="toStudentjc">/studentjc.jsp</result>
+			    <result name="input">/studentjc.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToStudentIeltsList" class="org.yeeku.action.StudentAction" method = "toStudentIeltsList">
+			    <result name="toStudentIeltsList">/ieltsList.jsp</result>
+			    <result name="input">/ieltsList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToStudentIeltsAdd" class="org.yeeku.action.StudentAction" method = "toStudentIeltsAdd">
+			    <result name="toStudentIeltsAdd">/ieltsAdd.jsp</result>
+			    <result name="input">/ieltsAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoStudentIeltsAdd" class="org.yeeku.action.StudentAction" method = "doStudentIeltsAdd">
+			    <result name="doStudentIeltsAdd">/ieltsAdd.jsp</result>
+			    <result name="input">/ieltsAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToAdviceAdd" class="org.yeeku.action.StudentAction" method = "toAdviceAdd">
+			    <result name="toAdviceAdd">/adviceAdd.jsp</result>
+			    <result name="toAdviceBangongshi">/adviceBangongshi.jsp</result>
+			    <result name="input">/adviceAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="RevokeAdviceInfo" class="org.yeeku.action.StudentAction" method = "revokeAdviceInfo">
+			    <result name="revokeAdviceInfo">/adviceAdd.jsp</result>
+			    <result name="input">/adviceAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="CheckAdviceInfo" class="org.yeeku.action.StudentAction" method = "checkAdviceInfo">
+			    <result name="checkAdviceInfo">/adviceAdd.jsp</result>
+			    <result name="input">/adviceAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoAdviceAdd" class="org.yeeku.action.StudentAction" method = "doAdviceAdd">
+			    <result name="doAdviceAdd" type="redirect">/ToAdviceAdd.action</result>
+			    <result name="input">/adviceAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToMyStudentList" class="org.yeeku.action.ManageAction" method = "toMyStudentList">
+			    <result name="toMyStudentList">/myStudentList.jsp</result>
+			    <result name="input">/myStudentList.jsp</result>
+			    <result name="exception">/error.jsp</result>      
+		</action>
+		
+		<!--<action name="ToMyStudentList" class="org.yeeku.action.ManageAction" method = "toMyStudentList">
+			    <result name="toMyStudentList">/myStudentList.jsp</result>
+			    <result name="input">/myStudentList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		--><action name="ToStudentDetail" class="org.yeeku.action.ManageAction" method = "toStudentDetail">
+			    <result name="toStudentDetail">/studentInfo.jsp</result>
+			    <result name="input">/studentInfo.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToChangeStudentPassword" class="org.yeeku.action.ManageAction" method = "toChangeStudentPassword">
+			    <result name="toChangeStudentPassword">/modifystudentpassword.jsp</result>
+			    <result name="input">/modifystudentpassword.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoStudentModify" class="org.yeeku.action.ManageAction" method = "doStudentModify">
+			    <result name="doStudentModify">/modifystudentpassword.jsp</result>
+			    <result name="input">/modifystudentpassword.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SaveStudentInfo" class="org.yeeku.action.ManageAction" method = "saveStudentInfo">
+			    <result name="saveStudentInfo">/studentInfo.jsp</result>
+			    <result name="input">/studentInfo.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToMyNoticeList" class="org.yeeku.action.StudentAction" method = "toMyNoticeList">
+			    <result name="toMyNoticeList">/myNoticeList.jsp</result>
+			    <result name="input">/myNoticeList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="ToNoticeAdd" class="org.yeeku.action.StudentAction" method = "toNoticeAdd">
+			    <result name="toNoticeAdd">/noticeAdd.jsp</result>
+			    <result name="input">/noticeAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoNoticeAdd" class="org.yeeku.action.StudentAction" method = "doNoticeAdd">
+			    <result name="doNoticeAdd" type="redirect">ToMyNoticeList.action</result>
+			    <result name="input">/noticeAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToMyAbsenceList" class="org.yeeku.action.ManageAction" method = "toMyAbsenceList">
+			    <result name="toMyAbsenceList">/myAbsenceList.jsp</result>
+			    <result name="input">/myAbsenceList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoAbsenceStatus" class="org.yeeku.action.ManageAction" method = "doAbsenceStatus">
+			    <result name="doAbsenceStatus" type="redirect">ToMyAbsenceList.action</result>
+			    <result name="input">/myAbsenceList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToMyKechengList" class="org.yeeku.action.KechengAction" method = "toMyKechengList">
+			    <result name="toMyKechengList">/myKechengList.jsp</result>
+			    <result name="input">/myKechengList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToKaoqin" class="org.yeeku.action.ManageAction" method = "toKaoqin">
+			    <result name="toKaoqin">/kaoqinStudentList.jsp</result>
+			    <result name="input">/kaoqinStudentList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoKaoqin" class="org.yeeku.action.ManageAction" method = "doKaoqin">
+			    <result name="doKaoqin" type="redirect">ToMyAbsenceList.action</result>
+			    <!--<result name="doKaoqin">/kaoqinStudentList.jsp</result>
+			    -->
+			    <result name="input">/kaoqinStudentList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="Dobelate" class="org.yeeku.action.ManageAction" method = "dobelate">
+			    <result name="dobelate">/kaoqinStudentList.jsp</result>
+			    <result name="input">/kaoqinStudentList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="Doabsence" class="org.yeeku.action.ManageAction" method = "doabsence">
+			    <result name="doabsence">/kaoqinStudentList.jsp</result>
+			    <result name="input">/kaoqinStudentList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToRewardPunishList" class="org.yeeku.action.ManageAction" method = "toRewardPunishList">
+			    <result name="toRewardPunishList">/rewardPunishList.jsp</result>
+			    <result name="input">/rewardPunishList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToPunishAdd" class="org.yeeku.action.ManageAction" method = "toPunishAdd">
+			    <result name="toPunishAdd">/punishAdd.jsp</result>
+			    <result name="input">/punishAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoPunishAdd" class="org.yeeku.action.ManageAction" method = "doPunishAdd">
+			    <result name="doPunishAdd" type="redirect">ToRewardPunishList.action</result>
+			    <result name="input">/punishAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToPunishEdit" class="org.yeeku.action.ManageAction" method = "toPunishEdit">
+			    <result name="toPunishEdit">/punishEdit.jsp</result>
+			    <result name="input">/punishEdit.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoPunishUpdate" class="org.yeeku.action.ManageAction" method = "doPunishUpdate">
+			    <result name="doPunishUpdate" type="redirect">ToRewardPunishList.action</result>
+			    <result name="input">/rewardPunishList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DeletePunish" class="org.yeeku.action.ManageAction" method = "deletePunish">
+			    <result name="deletePunish" type="redirect">ToRewardPunishList.action</result>
+			    <result name="input">/rewardPunishList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToRewardAdd" class="org.yeeku.action.ManageAction" method = "toRewardAdd">
+			    <result name="toRewardAdd">/rewardAdd.jsp</result>
+			    <result name="input">/punishAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoRewardAdd" class="org.yeeku.action.ManageAction" method = "doRewardAdd">
+			    <result name="doRewardAdd" type="redirect">ToRewardPunishList.action</result>
+			    <result name="input" type="redirect">ToRewardPunishList.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToRewardEdit" class="org.yeeku.action.ManageAction" method = "toRewardEdit">
+			    <result name="toRewardEdit">/rewardEdit.jsp</result>
+			    <result name="input">/rewardEdit.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoRewardUpdate" class="org.yeeku.action.ManageAction" method = "doRewardUpdate">
+			    <result name="doRewardUpdate" type="redirect">ToRewardPunishList.action</result>
+			    <result name="input" type="redirect">ToRewardPunishList.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DeleteReward" class="org.yeeku.action.ManageAction" method = "deleteReward">
+			    <result name="deleteReward" type="redirect">ToRewardPunishList.action</result>
+			    <result name="input" type="redirect">ToRewardPunishList.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="CancelPunish" class="org.yeeku.action.ManageAction" method = "cancelPunish">
+			    <result name="cancelPunish" type="redirect">ToRewardPunishList.action</result>
+			    <result name="input" type="redirect">ToRewardPunishList.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ImportReward" class="org.yeeku.action.ManageAction" method = "importReward">
+			    <result name="result">/rewardPunishList.jsp</result>
+			    <result name="input">/rewardPunishList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ImportPunish" class="org.yeeku.action.ManageAction" method = "importPunish">
+			    <result name="result">/rewardPunishList.jsp</result>
+			    <result name="input">/rewardPunishList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToAssistantIeltsList" class="org.yeeku.action.ManageAction" method = "toAssistantIeltsList">
+			    <result name="toAssistantIeltsList">/ieltsListAssistant.jsp</result>
+			    <result name="input">/ieltsListAssistant.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoCheckIelts" class="org.yeeku.action.ManageAction" method = "doCheckIelts">
+			    <result name="doCheckIelts" type="redirect">ToAssistantIeltsList.action</result>
+			    <result name="input" type="redirect">ToAssistantIeltsList.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="FindIeltsInfoById" class="org.yeeku.action.CommonAction" method = "findIeltsInfoById">
+		 		<result name="success" type="json">/ieltsListAssistant.jsp</result>
+			    <result name="input">/ieltsListAssistant.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SaveStudentItelsInfo" class="org.yeeku.action.CommonAction" method = "saveStudentItelsInfo">
+			    <result name="saveStudentItelsInfo" type="redirect">ToAssistantIeltsList.action</result>
+			    <result name="input" type="redirect">ToAssistantIeltsList.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ExportExcel" class="org.yeeku.action.CommonAction" method = "exportExcel">
+			    <!--<result name="exportExcel" type="redirect">ToAssistantIeltsList.action</result>
+			    <result name="input" type="redirect">ToAssistantIeltsList.action</result>
+			    -->
+			    <result name="success" type="json"/>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="FindTeacherKebiaoListByVersion" class="org.yeeku.action.KechengAction" method = "findTeacherKebiaoListByVersion">
+			    <result name="findTeacherKebiaoListByVersion">kebiaoteacher.jsp</result>
+			    <result name="input">kebiaoteacher.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="FindStudentKebiaoListByVersion" class="org.yeeku.action.KechengAction" method = "findStudentKebiaoListByVersion">
+			    <result name="findStudentKebiaoListByVersion">kebiao.jsp</result>
+			    <result name="input">kebiao.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="FindFudaoyuanKebiaoListByVersion" class="org.yeeku.action.KechengAction" method = "findFudaoyuanKebiaoListByVersion">
+			    <result name="findFudaoyuanKebiaoListByVersion">kebiaofudaoyuan.jsp</result>
+			    <result name="input">kebiaofudaoyuan.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="FindFudaoyuanKebiaoListByVersionAndClass" class="org.yeeku.action.KechengAction" method = "findFudaoyuanKebiaoListByVersionAndClass">
+			    <result name="findFudaoyuanKebiaoListByVersionAndClass">kebiaofudaoyuan.jsp</result>
+			    <result name="input">kebiaofudaoyuan.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToStudentListTeacher" class="org.yeeku.action.ManageAction" method = "toStudentListTeacher">
+			    <result name="toStudentListTeacher">studentListTeacher.jsp</result>
+			    <result name="input">studentListTeacher.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToAdjustKecheng" class="org.yeeku.action.ManageAction" method = "toAdjustKecheng">
+			    <result name="toAdjustKecheng">adjustKecheng.jsp</result>
+			    <result name="input">adjustKecheng.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="ToAdjustKechengcheck" class="org.yeeku.action.ManageAction" method = "toAdjustKechengcheck">
+			    <result name="toAdjustKecheng">adjustKecheng.jsp</result>
+			    <result name="input">adjustKecheng.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		 <!--1111111111111  -->
+		<action name="DoAdjustAdd" class="org.yeeku.action.ManageAction" method = "doAdjustAdd">
+			    <result name="doAdjustAdd" type="redirect">ToAdjustKecheng.action</result>
+			    <result name="input">adjustKecheng.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="ToReplaceAdjustKecheng" class="org.yeeku.action.ManageAction" method = "toReplaceAdjustKecheng"> 
+			     <result type="json" name="success"/>   
+		</action>
+		<action name="Getendtime" class="org.yeeku.action.ManageAction" method = "getendtime"> 
+			     <result type="json" name="success"/>   
+		</action>
+		
+		<action name="ToAdjustList" class="org.yeeku.action.ManageAction" method = "toAdjustList">
+			    <result name="toAdjustList">adjustList.jsp</result>
+			    <result name="input">adjustList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="LookAdjustList" class="org.yeeku.action.ManageAction" method = "lookAdjustList">
+			    <result name="lookAdjustList">lookadjust.jsp</result>
+			    <result name="input">lookadjust.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ApproveAdjust" class="org.yeeku.action.ManageAction" method = "approveAdjust">
+			    <result name="approveAdjust" type="redirect">ToAdjustList.action</result>
+			    <result name="input" type="redirect">ToAdjustList.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="RejectAdjust" class="org.yeeku.action.ManageAction" method = "rejectAdjust">
+			    <result name="rejectAdjust" type="redirect">ToAdjustList.action</result>
+			    <result name="input" type="redirect">ToAdjustList.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToLoggingList" class="org.yeeku.action.ManageAction" method = "toLoggingList">
+			    <result name="toLoggingList">loggingList.jsp</result>
+			    <result name="input">loggingList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToAllStudentList" class="org.yeeku.action.ManageAction" method = "toAllStudentList">
+			    <result name="toAllStudentList">/allStudentList.jsp</result>
+			    <result name="input">/allStudentList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToTeacherList" class="org.yeeku.action.ManageAction" method = "toTeacherList">
+			    <result name="toTeacherList">/teacherList.jsp</result>
+			    <result name="input">/teacherList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToClassListJiaowu" class="org.yeeku.action.ManageAction" method = "toClassListJiaowu">
+			    <result name="toClassListJiaowu">/classListJiaowu.jsp</result>
+			    <result name="input">/classListJiaowu.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="ToFbClassListJiaowu" class="org.yeeku.action.ManageAction" method = "toFbClassListJiaowu">
+			    <result name="toFbClassListJiaowu">/fbclassListJiaowu.jsp</result>
+			    <result name="input">/fbclassListJiaowu.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToStudentListLiuji" class="org.yeeku.action.ManageAction" method = "toStudentListLiuji">
+			    <result name="toStudentListLiuji">studentListLiuji.jsp</result>
+			    <result name="input">studentListLiuji.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="FbToStudentListLiuji" class="org.yeeku.action.ManageAction" method = "fbToStudentListLiuji">
+			    <result name="fbToStudentListLiuji">fbstudentListLiuji.jsp</result>
+			    <result name="input">fbstudentListLiuji.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="SelectAssistantname" class="org.yeeku.action.ManageAction" method = "selectassistantname">
+			    <result type="json" name="success"/>  
+		</action>
+		<action name="UpdateStudentTclas" class="org.yeeku.action.ManageAction" method = "updatestudenttclas">
+			    <result name="updatestudenttclas" type="redirect">ToFbClassListJiaowu.action</result> 
+			    <result name="input">/fbclassListJiaowu.jsp</result> 
+			    <result name="exception">/fbclassListJiaowu.jsp</result> 
+		</action>
+		
+		<action name="DoLiuji" class="org.yeeku.action.ManageAction" method = "doLiuji">
+			    <result name="doLiuji" type="redirect">ToClassListJiaowu.action</result>
+			    <result name="input" type="redirect">ToClassListJiaowu.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToKebiao" class="org.yeeku.action.ManageAction" method = "toKebiao">
+			    <result name="toKebiao">kebiao.jsp</result>
+			    <result name="toKebiaoTeacher">kebiaoteacher.jsp</result>
+			    <result name="toKebiaoFudaoyuan">kebiaofudaoyuan.jsp</result>
+			    <result name="input">kebiao.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoDelayInput" class="org.yeeku.action.ManageAction" method = "doDelayInput">
+			    <result name="doDelayInput" type="redirect">ToExamListTea.action</result>
+			    <result name="input" type="redirect">ToExamListTea.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToDelayList" class="org.yeeku.action.ManageAction" method = "toDelayList">
+			    <result name="toDelayList">delayList.jsp</result>
+			    <result name="toDelayListJiaowu">delayListJiaowu.jsp</result>
+			    <result name="input">delayList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ApproveDelay" class="org.yeeku.action.ManageAction" method = "approveDelay">
+			    <result name="approveDelay" type="redirectAction">
+			       <param name="actionName"> ToDelayList.action</param>
+			       <param name="prompt">${prompt}</param>
+			     </result>
+			    <result name="input" type="redirect">ToDelayList.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+<!-- 		<action name="ApproveDelay" class="org.yeeku.action.ManageAction" method = "approveDelay">
+			    <result name="approveDelay" type="redirect">ToDelayList.action</result>
+			    <result name="input" type="redirect">ToDelayList.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action> -->
+		
+		<action name="ToExampjList" class="org.yeeku.action.ManageAction" method = "toExampjList">
+			    <result name="toExampjList">exampjList.jsp</result>
+			    <result name="input">exampjList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToExampjAdd" class="org.yeeku.action.ManageAction" method = "toExampjAdd">
+			    <result name="toExampjAdd">exampjAdd.jsp</result>
+			    <result name="input">exampjAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoExampjAdd" class="org.yeeku.action.ManageAction" method = "doExampjAdd">
+			    <result name="doExampjAdd" type="redirect">ToExampjList.action</result>
+			    <result name="input" type="redirect">ToExampjList.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="OpenScore" class="org.yeeku.action.ManageAction" method = "openScore">
+			    <result name="openScore" type="redirect">ToExampjList.action</result>
+			    <result name="input" type="redirect">ToExampjList.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="CloseScore" class="org.yeeku.action.ManageAction" method = "closeScore">
+			    <result name="closeScore" type="redirect">ToExampjList.action</result>
+			    <result name="input" type="redirect">ToExampjList.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToMyExampjList" class="org.yeeku.action.ManageAction" method = "toMyExampjList">
+			    <result name="toMyExampjList">myExampjList.jsp</result>
+			    <result name="input">myExampjList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToDistributeClass" class="org.yeeku.action.ManageAction" method = "toDistributeClass">
+			    <result name="toDistributeClass">classDistribute.jsp</result>
+			    <result name="input">classDistribute.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DistributeClass" class="org.yeeku.action.ManageAction" method = "distributeClass">
+			    <result name="result">classDistribute.jsp</result>
+			    <result name="input">classDistribute.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<!-- 教务管理配置 end -->
+		
+		<action name="Select" class="org.yeeku.action.SelectAction" method = "search">
+			    <result name="search">/studentList.jsp</result>
+			    <result name="input">/studentList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SelectRecord" class="org.yeeku.action.SelectAction" method = "selectRecord">
+			    <result name="selectRecord">/recordOverview.jsp</result>
+			    <result name="input">/recordOverview.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="LessonRecordDetail" class="org.yeeku.action.SelectAction" method = "lessonRecordDetail">
+			    <result name="lessonRecordDetail">/lessonRecordDetail.jsp</result>
+			    <result name="input">/lessonRecordDetail.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+	    <action name="SelectManualRecord" class="org.yeeku.action.SelectAction" method = "selectManualRecord">
+			    <result name="selectManualRecord">/selectStudentRecord.jsp</result>
+			    <result name="input">/selectStudentRecord.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DropCourseList" class="org.yeeku.action.SelectAction" method = "dropCourseList">
+			    <result name="dropCourseList">/dropCourseList.jsp</result>
+			    <result name="input">/dropCourseList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DropCourse" class="org.yeeku.action.SelectAction" method = "dropCourse">
+			    <result name="dropCourse">dropCourseList.jsp</result>
+			    <result name="data_inconsistent">dropCourseList.jsp</result>
+			    <result name="input">dropCourseList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="OnSearch" class="org.yeeku.action.SelectAction" method = "search">
+			    <result name="search">/studentList.jsp</result>
+			    <result name="input">/studentList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="OnStuSearch" class="org.yeeku.action.SelectAction" method = "selectStudentRecord">
+			    <result name="selectStudentRecord">/selectStudentRecord.jsp</result>
+			    <result name="input">/selectStudentRecord.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ListTeacher" class="org.yeeku.action.SelectTeacherAction" method = "search">
+			    <result name="search">/teacherList.jsp</result>
+			    <result name="input">/teacherList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ListUser" class="org.yeeku.action.SelectTeacherAction" method = "listUser">
+			    <result name="listUser">/userList.jsp</result>
+			    <result name="input">/userList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="AddUser" class="org.yeeku.action.SelectTeacherAction" method = "addUser">
+			    <result name="addUser">/userAdd.jsp</result>
+			    <result name="input">/userAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SaveUser" class="org.yeeku.action.SelectTeacherAction" method = "saveUser">
+			    <result name="saveUser" type="redirect">ListUser.action</result>
+			    <result name="input">/userList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="UpdateUser" class="org.yeeku.action.SelectTeacherAction" method = "updateUser">
+			    <result name="updateUser" type="redirect">ListUser.action</result>
+			    <result name="input">/userList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		
+		
+		<action name="EditUser" class="org.yeeku.action.SelectTeacherAction" method = "editUser">
+			    <result name="editUser">userEdit.jsp</result>
+			    <result name="input">userEdit.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ListRoom" class="org.yeeku.action.SelectTeacherAction" method = "findAllRoom">
+			    <result name="roomList">/roomList.jsp</result>
+			    <result name="input">/roomList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ListEmployee" class="org.yeeku.action.SelectTeacherAction" method = "findAllEmployee">
+			    <result name="employeeList">/employeeList.jsp</result>
+			    <result name="input">/employeeList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ListUncheckedEmployee" class="org.yeeku.action.SelectTeacherAction" method = "listUncheckedEmployee">
+			    <result name="listUncheckedEmployee">/employeeUncheckedList.jsp</result>
+			    <result name="input">/employeeUncheckedList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SearchEmployee" class="org.yeeku.action.SelectTeacherAction" method = "searchEmployee">
+			    <result name="searchEmployee">/employeeList.jsp</result>
+			    <result name="input">/employeeList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SearchContract" class="org.yeeku.action.SelectTeacherAction" method = "searchContract">
+			    <result name="searchContract">/contractList.jsp</result>
+			    <result name="input">/contractList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SortEmployeeByAgeUp" class="org.yeeku.action.SelectTeacherAction" method = "sortEmployeeByAgeUp">
+			    <result name="sortEmployeeByAge">/employeeList.jsp</result>
+			    <result name="input">/employeeList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SortEmployeeByAgeDown" class="org.yeeku.action.SelectTeacherAction" method = "sortEmployeeByAgeDown">
+			    <result name="sortEmployeeByAge">/employeeList.jsp</result>
+			    <result name="input">/employeeList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SortEmployeeByTotalUp" class="org.yeeku.action.SelectTeacherAction" method = "sortEmployeeByTotalUp">
+			    <result name="sortEmployeeByAge">/employeeList.jsp</result>
+			    <result name="input">/employeeList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SortEmployeeByTotalDown" class="org.yeeku.action.SelectTeacherAction" method = "sortEmployeeByTotalDown">
+			    <result name="sortEmployeeByAge">/employeeList.jsp</result>
+			    <result name="input">/employeeList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SortEmployeeByRemainUp" class="org.yeeku.action.SelectTeacherAction" method = "sortEmployeeByRemainUp">
+			    <result name="sortEmployeeByAge">/employeeList.jsp</result>
+			    <result name="input">/employeeList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SortEmployeeByRemainDown" class="org.yeeku.action.SelectTeacherAction" method = "sortEmployeeByRemainDown">
+			    <result name="sortEmployeeByAge">/employeeList.jsp</result>
+			    <result name="input">/employeeList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SortContractByTotalUp" class="org.yeeku.action.SelectTeacherAction" method = "sortContractByTotalUp">
+			    <result name="contractList">/contractList.jsp</result>
+			    <result name="input">/contractList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SortContractByTotalDown" class="org.yeeku.action.SelectTeacherAction" method = "sortContractByTotalDown">
+			    <result name="contractList">/contractList.jsp</result>
+			    <result name="input">/contractList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SortContractByDateUp" class="org.yeeku.action.SelectTeacherAction" method = "sortContractByDateUp">
+			    <result name="contractList">/contractList.jsp</result>
+			    <result name="input">/contractList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SortContractByDateDown" class="org.yeeku.action.SelectTeacherAction" method = "sortContractByDateDown">
+			    <result name="contractList">/contractList.jsp</result>
+			    <result name="input">/contractList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ListContract" class="org.yeeku.action.SelectTeacherAction" method = "findAllContract">
+			    <result name="contractList">/contractList.jsp</result>
+			    <result name="input">/contractList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ListUncheckedContract" class="org.yeeku.action.SelectTeacherAction" method = "listUncheckedContract">
+			    <result name="listUncheckedContract">/contractUncheckedList.jsp</result>
+			    <result name="input">/contractUncheckedList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="EditEmployee" class="org.yeeku.action.SelectTeacherAction" method = "editEmployee">
+			    <result name="editEmployee">/employeeEdit.jsp</result>
+			    <result name="input">/employeeEdit.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="EditTeacher" class="org.yeeku.action.SelectTeacherAction" method = "editTeacher">
+			    <result name="edit">/teacherEdit.jsp</result>
+			    <result name="input">/teacherEdit.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="EditRoom" class="org.yeeku.action.SelectTeacherAction" method = "editRoom">
+			    <result name="editRoom">/roomEdit.jsp</result>
+			    <result name="input">/roomEdit.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DeleteTeacher" class="org.yeeku.action.SelectTeacherAction" method = "deleteTeacher">
+		        <result name="deleteTeacher" type="redirect">ListTeacher.action</result>
+			    <result name="input">/teacherList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DeleteLesson" class="org.yeeku.action.SelectTeacherAction" method = "deleteLesson">
+		        <result name="deleteLesson" type="redirect">EditCurSch.action</result>
+			    <result name="input" type="redirect">EditCurSch.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="AddTeacher" class="org.yeeku.action.SelectTeacherAction" method = "addTeacher">
+		        <result name="addTeacher">teacherAdd.jsp</result>
+			    <result name="input">/teacherList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="AddRoom" class="org.yeeku.action.SelectTeacherAction" method = "addRoom">
+		        <result name="addRoom">/roomAdd.jsp</result>
+			    <result name="input">/roomList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SaveTeacher" class="org.yeeku.action.SelectTeacherAction" method = "saveTeacher">
+			    <result name="saveTeacher" type="redirect">ListTeacher.action</result>
+			    <result name="input">ListTeacher.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SaveRoom" class="org.yeeku.action.SelectTeacherAction" method = "saveRoom">
+			    <result name="saveRoom" type="redirect">ListRoom.action</result>
+			    <result name="input">ListRoom.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="EditCurSch" class="org.yeeku.action.SelectTeacherAction" method = "setTeacherCurSch">
+			    <result name="setTeacherCurSch">teacherCurSchSetting.jsp</result>
+			    <result name="input">teacherCurSchSetting.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="EditLesson" class="org.yeeku.action.SelectTeacherAction" method = "editLesson">
+			    <result name="editLesson">lessonEdit.jsp</result>
+			    <result name="input">lessonEdit.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="AddLesson" class="org.yeeku.action.SelectTeacherAction" method = "addLesson">
+			    <result name="addLesson">lessonAdd.jsp</result>
+			    <result name="input">lessonAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SaveLesson" class="org.yeeku.action.SelectTeacherAction" method = "saveLesson">
+			    <result name="saveLesson" type="redirect">ListTeacher.action</result>
+			    <result name="input" type="redirect">ListTeacher.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SaveNewLesson" class="org.yeeku.action.SelectTeacherAction" method = "saveNewLesson">
+			    <result name="saveNewLesson" type="redirect">ListTeacher.action</result>
+			    <result name="input" type="redirect">ListTeacher.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DetailEmployee" class="org.yeeku.action.SelectTeacherAction" method = "detailEmployee">
+			    <result name="detailEmployee">employeeDetail.jsp</result>
+			    <result name="input">employeeDetail.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DetailUncheckedEmployee" class="org.yeeku.action.SelectTeacherAction" method = "detailUncheckedEmployee">
+			    <result name="detailUncheckedEmployee">employeeUncheckedDetail.jsp</result>
+			    <result name="input">employeeUncheckedDetail.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="AddEmployee" class="org.yeeku.action.SelectTeacherAction" method = "addEmployee">
+			    <result name="addEmployee">employeeAdd.jsp</result>
+			    <result name="addUncheckedEmployee">employeeUncheckedAdd.jsp</result>
+			    <result name="input">employeeAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SaveEmployee" class="org.yeeku.action.SelectTeacherAction" method = "saveEmployee">
+			    <result name="saveEmployee" type="redirect">ListEmployee.action</result>
+			    <result name="failure">/employeeAdd.jsp</result>
+			    <result name="agent" type="redirect">ListUncheckedEmployee.action</result>
+			    <result name="toobig">/employeeAdd.jsp</result>
+			    <result name="input" type="redirect">ListEmployee.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="UpdateEmployee" class="org.yeeku.action.SelectTeacherAction" method = "updateEmployee">
+			    <result name="updateEmployee" type="redirect">ListEmployee.action</result>
+			    <result name="toobig">/employeeEdit.jsp</result>
+			    <result name="input" type="redirect">ListEmployee.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="CheckEmployee" class="org.yeeku.action.SelectTeacherAction" method = "checkEmployee">
+			    <result name="checkEmployee" type="redirect">ListEmployee.action</result>
+			    <result name="input" type="redirect">ListEmployee.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="CheckContract" class="org.yeeku.action.SelectTeacherAction" method = "checkContract">
+			    <result name="checkContract" type="redirect">ListContract.action</result>
+			    <result name="input" type="redirect">ListContract.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="AddContract" class="org.yeeku.action.SelectTeacherAction" method = "addContract">
+			    <result name="addContract">/contractAdd.jsp</result>
+			    <result name="input">/contractAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="AddUncheckedContract" class="org.yeeku.action.SelectTeacherAction" method = "addUncheckedContract">
+			    <result name="addUncheckedContract">/contractUncheckedAdd.jsp</result>
+			    <result name="input">/contractUncheckedAdd.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DeleteContract" class="org.yeeku.action.SelectTeacherAction" method = "deleteContract">
+			    <result name="deleteContract" type="redirect">ListContract.action</result>
+			    <result name="input">/contractList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DeleteUncheckedContract" class="org.yeeku.action.SelectTeacherAction" method = "deleteContract">
+			    <result name="deleteContract" type="redirect">ListUncheckedContract.action</result>
+			    <result name="input">/contractUncheckedList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DeleteEmployee" class="org.yeeku.action.SelectTeacherAction" method = "deleteEmployee">
+			    <result name="deleteEmployee" type="redirect">ListEmployee.action</result>
+			    <result name="input">/employeeList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DeleteUncheckedEmployee" class="org.yeeku.action.SelectTeacherAction" method = "deleteEmployee">
+			    <result name="deleteEmployee" type="redirect">ListUncheckedEmployee.action</result>
+			    <result name="input">/employeeUncheckedList.jsp</result>
+			    <result name="exception">/error.jsp</result>    
+		</action>
+		
+		<action name="SaveContract" class="org.yeeku.action.SelectTeacherAction" method = "saveContract">
+			    <result name="saveContract" type="redirect">ListContract.action</result>
+			    <result name="agent" type="redirect">ListUncheckedContract.action</result>
+			    <result name="failure">/contractAdd.jsp</result>
+			    <result name="input">/error.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="NoCardHandle" class="org.yeeku.action.NoCardAction" method = "search">
+			    <result name="search">/studentSearch.jsp</result>
+			    <result name="input">/studentSearch.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<!--
+		
+		<action name="NoCardHandleUser" class="org.yeeku.action.NoCardAction" method = "searchUser">
+			    <result name="searchUser">/studentSearchUser.jsp</result>
+			    <result name="input">/studentSearchUser.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		-->
+		
+		<action name="SearchStudent" class="org.yeeku.action.NoCardAction" method = "searchStudent">
+			    <result name="searchStudent">studentSearch.jsp</result>
+			    <result name="input">studentSearch.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SaveManualRecord" class="org.yeeku.action.NoCardAction" method = "saveManualRecord">
+			    <result name="saveManualRecord" type="redirect">NoCardHandle.action</result>
+			    <result name="input" type="redirect">NoCardHandle.action</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SaveManualRecordUser" class="org.yeeku.action.NoCardAction" method = "saveManualRecordUser">
+			    <result name="saveManualRecordUser">passConfirmSuccessful.jsp</result>
+			    <result name="failure">passConfirm.jsp</result>
+			    <result name="input">passConfirm.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ConfirmPass" class="org.yeeku.action.NoCardAction" method = "confirmPass">
+			    <result name="confirmPass">passConfirm.jsp</result>
+			    <result name="input">passConfirm.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ActivityHandle" class="org.yeeku.action.NoCardAction" method = "searchActivityStudent">
+			    <result name="activityHandle">/chooseActivityStudent.jsp</result>
+			    <result name="input">/chooseActivityStudent.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ExClassHandle" class="org.yeeku.action.NoCardAction" method = "handleExClass">
+			    <result name="handleExClass">/exClassHandle.jsp</result>
+			    <result name="input">/exClassHandle.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SearchActivityStudentByIDorName" class="org.yeeku.action.NoCardAction" method = "searchActivityStudentByIDorName">
+			    <result name="searchActivityStudentByIDorName">chooseActivityStudent.jsp</result>
+			    <result name="input">chooseActivityStudent.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="FillMoreInformation" class="org.yeeku.action.NoCardAction" method = "fillMoreInformation">
+			    <result name="fillMoreInformation">/studentActivityDetail.jsp</result>
+			    <result name="input">/studentActivityDetail.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="FillMoreLessonInformation" class="org.yeeku.action.NoCardAction" method = "fillMoreLessonInformation">
+			    <result name="chooseStudent">/studentChoose.jsp</result>
+			    <result name="chooseStudentUser">/studentChooseUser.jsp</result>
+			    <result name="input">/studentChoose.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SaveExClassRecord" class="org.yeeku.action.NoCardAction" method = "saveExClassRecord">
+			    <result name="saveExClassRecord">exClassHandle.jsp</result>
+			    <result name="input">exClassHandle.jsp</result>
+			    <result name="failure">/error.jsp</result>
+		</action>
+		
+		<action name="SaveActicityManualRecord" class="org.yeeku.action.NoCardAction" method = "saveActivityManualRecord">
+			    <result name="saveActivityManualRecord" type="redirect">ActivityHandle.action</result>
+			    <result name="input">chooseActivityStudent.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ForgetRank" class="org.yeeku.action.NoCardAction" method = "forgetRank">
+			    <result name="forgetRank">forgetRank.jsp</result>
+			    <result name="input">forgetRank.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SearchForgetRank" class="org.yeeku.action.NoCardAction" method = "forgetRank">
+			    <result name="forgetRank">forgetRank.jsp</result>
+			    <result name="input">forgetRank.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="RecoverCardRecord" class="org.yeeku.action.NoCardAction" method = "recoverCardRecord">
+			    <result name="recoverCardRecord">recoverCardRecord.jsp</result>
+			    <result name="input">recoverCardRecord.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SearchForgetStudent" class="org.yeeku.action.NoCardAction" method = "recoverCardRecord">
+			    <result name="recoverCardRecord">recoverCardRecord.jsp</result>
+			    <result name="input">recoverCardRecord.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="SaveRecoverRecord" class="org.yeeku.action.NoCardAction" method = "saveRecoverRecord">
+			    <result name="saveRecoverRecord" type="redirect">RecoverCardRecord.action</result>
+			    <result name="input">recoverCardRecord.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="logoff" class="org.yeeku.action.LogoffAction" >
+				<result name="success">/logout.jsp</result>
+		</action>
+		
+		<action name="password" class="org.yeeku.action.SelectAction" method = "password">
+				<result name="password">/password.jsp</result>
+		</action>
+		
+		<action name="passwordCheck" class="org.yeeku.action.SelectAction"  method="ajaxCheck"></action>
+		
+		<action name="contractNOCheck" class="org.yeeku.action.SelectTeacherAction"  method="ajaxContractNOCheck"></action>
+		
+		<action name="emplNameCheck" class="org.yeeku.action.SelectTeacherAction"  method="ajaxEmplNameCheck"></action>
+		
+		<action name="modifyPassword" class="org.yeeku.action.SelectAction" method="modify">
+		        <!-- <result name="input">/password.jsp</result> -->
+				<result name="modify">/password.jsp</result>
+		</action>
+
+		<action name="LookExamList" class="org.yeeku.action.ManageAction" method = "lookExamList">
+			    <result name="lookExamList">/lookExamList.jsp</result>
+			    <result name="input">lookExamList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToExamListByClass" class="org.yeeku.action.ManageAction" method = "toExamListByClass">
+			    <result name="toExamListByClass">/lookExamList.jsp</result>
+			    <result name="input">/lookExamList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="FindStudentHistoryInformation" class="org.yeeku.action.StudentAction" method = "findStudentHistoryInformation">
+			    <result name="findStudentHistoryInformation">/historyStudentList.jsp</result>
+			    <result name="input">/historyStudentList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="LookStudentSubjectHistoryInformation" class="org.yeeku.action.StudentAction" method = "lookStudentSubjectHistoryInformation">
+			    <result name="lookStudentSubjectHistoryInformation">/studentSubjectHistoryInformation.jsp</result>
+			    <result name="input">/studentHistoryInformation.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="LookStudentSubjectDetailHistoryInformation" class="org.yeeku.action.StudentAction" method = "lookStudentSubjectDetailHistoryInformation">
+			    <result name="lookStudentSubjectDetailHistoryInformation">/studentSubjectDetailHistoryInformation.jsp</result>
+			    <result name="input">/studentHistoryInformation.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="FindStudentHistoryAbsenceInformation" class="org.yeeku.action.StudentAction" method = "findStudentHistoryAbsenceInformation">
+			    <result name="findStudentHistoryAbsenceInformation">/historyTClass.jsp</result>
+			    <result name="findStudentHistoryAbsenceDetailInformation">/historyAbsence.jsp</result>
+			    <result name="input">/historyTClass.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="FindStudentHistoryAbsenceDetailInformation" class="org.yeeku.action.StudentAction" method = "findStudentHistoryAbsenceDetailInformation">
+			    <result name="findStudentHistoryAbsenceDetailInformation">/historyAbsence.jsp</result>
+			    <result name="input">/historyAbsence.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="FindAbsenceByCondition" class="org.yeeku.action.ManageAction" method = "findAbsenceByCondition">
+			    <result name="findAbsenceByCondition">/myAbsenceList.jsp</result>
+			    <result name="input">/myAbsenceList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="LookAbsenceDetail" class="org.yeeku.action.ManageAction" method = "lookAbsenceDetail">
+			    <result name="lookAbsenceDetail">/myAbsenceList.jsp</result>
+			    <result name="input">/myAbsenceList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ExportAbsenceExcel" class="org.yeeku.action.CommonAction" method = "exportAbsenceExcel">
+			    <result name="success" type="json"/>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DownloadAbsenceExcel" class="org.yeeku.action.ManageAction" method = "downloadExcel">
+			    <result type="json" name="success"/>
+		</action>
+		
+		<action name="CheckCondition" class="org.yeeku.action.StudentAction" method = "checkCondition">
+			    <result type="json" name="success"/>
+		</action>
+		
+		<action name="GetStudent" class="org.yeeku.action.StudentAction" method = "getStudent">
+			    <result type="json" name="success"/>
+		</action>
+		
+		<action name="GetTeacher" class="org.yeeku.action.StudentAction" method = "getTeacher">
+			    <result type="json" name="success"/>
+		</action>
+		
+		<action name="GetSubject" class="org.yeeku.action.StudentAction" method = "getSubject">
+			    <result type="json" name="success"/>
+		</action>
+		
+		<action name="AddAbsence" class="org.yeeku.action.StudentAction" method = "addAbsence">
+			    <result name="addAbsence">/absence.jsp</result>
+			    <result name="input">/absence.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="UpdateAbsence" class="org.yeeku.action.StudentAction" method = "updateAbsence">
+			    <result name="updateAbsence">/absence.jsp</result>
+			    <result name="input">/absence.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoAddAbsence" class="org.yeeku.action.StudentAction" method = "doAddAbsence">
+				<!--<result name="doAddAbsence" type="redirect">ToUserList.action</result>
+			    -->
+			    <result name="doAddAbsence">/absence.jsp</result>
+			    <result name="input">/absence.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoUpdateAbsence" class="org.yeeku.action.StudentAction" method = "doUpdateAbsence">
+				<result name="doUpdateAbsence" type="redirectAction">
+					<param name="actionName">ToEditAbsence.action</param>
+					<param name="absenceid">${absenceid}</param>
+					<param name="content">${content}</param>
+				</result>
+			    <result name="input">/absenceEdit.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="ToEditAbsence" class="org.yeeku.action.StudentAction" method = "toEditAbsence">
+			    <result name="toEditAbsence">/absenceEdit.jsp</result>
+			    <result name="input">/absenceEdit.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="DoDeleteAbsence" class="org.yeeku.action.StudentAction" method = "doDeleteAbsence">
+			    <result name="doDeleteAbsence" type="redirectAction">
+			    	<param name="actionName">ToMyAbsenceList.action</param>
+					<param name="content">${content}</param>
+					<param name="top">${top}</param>
+			    </result>
+			    <result name="input">/myAbsenceList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		
+		<action name="GetUpdateTime" class="org.yeeku.action.StudentAction" method = "getUpdateTime">
+			    <result type="json" name="success"/>
+		</action>
+		
+		<action name="CheckModifityStatus" class="org.yeeku.action.ManageAction" method = "checkModifityStatus">
+			    <result type="json" name="success"/>
+		</action>
+		
+		<action name="ToCheckScoreList" class="org.yeeku.action.ManageAction" method = "toCheckScoreList">
+				<result name="toCheckScoreList">/checkScoreList.jsp</result>
+			    <result name="input">/checkScoreList.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="ToCheckScore" class="org.yeeku.action.ManageAction" method = "toCheckScore">
+				<result name="toCheckScore">/checkScore.jsp</result>
+			    <result name="input">/checkScore.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="ReturnScore" class="org.yeeku.action.ManageAction" method = "returnScore">
+				<result name="returnScore" type="redirect">ToCheckScoreList.action</result>
+			    <result name="input">/checkScore.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="SubmitScore" class="org.yeeku.action.ManageAction" method = "submitScore">
+				<result name="submitScore" type="redirect">ToCheckScoreList.action</result>
+			    <result name="input">/checkScore.jsp</result>
+			    <result name="exception">/error.jsp</result>
+		</action>
+		<action name="GetLever" class="org.yeeku.action.ManageAction" method="getLever">
+			<result type="json" name="success"/>
+		</action>
+		<!-- 下面的代码由Alan增加Begin-->	
+		<action name="ToclassroomList" class="org.yeeku.action.ClassroomAction" method="toClassroomList">
+				<result name="toClassroomList">/classroomList.jsp</result>
+		</action>
+		<action name="ToClassroomApply" class="org.yeeku.action.ClassroomAction" method="toClassroomApply" >
+				<result name="toClassroomApply">/classroomApply.jsp</result>
+		</action>
+		
+        <action name="DoClassroomApplyAdd" class="org.yeeku.action.ClassroomAction" method="doClassroomApplyAdd">
+				<result name="doClassroomApplyAdd" type="redirect">/ToclassroomList.action</result>
+		</action>
+		<action name="ToClassroomApplyList" class="org.yeeku.action.ClassroomAction" method="toClassroomApplyList">
+		<result name="toClassroomApplyList">/classroomapplyList.jsp</result>
+		</action>
+		<action name="ToClassroomApplyListForUser" class="org.yeeku.action.ClassroomAction" method="toClassroomApplyListForUser">
+		<result name="toClassroomApplyListForUser">/classroomapplyList.jsp</result>
+		</action>
+		<action name="DoClassroomApplyPass" class="org.yeeku.action.ClassroomAction" method="doClassroomApplyPass">
+		<result name="Pass" type="redirect">/ToClassroomApplyList.action</result>
+		</action>
+		<action name="DoClassroomApplyRefuse" class="org.yeeku.action.ClassroomAction" method="doClassroomApplyRefuse">
+		<result name="Refuse" type="redirect">/ToClassroomApplyList.action</result>
+		</action>
+        <!-- 上面的代码由Alan增加End -->
+    </package> 
+</struts>

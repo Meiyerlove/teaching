@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="Exam"	table="exam">
+		<id	name="id" column="id">
+			<generator class="native"/>
+		</id>
+		<property name="title" type="java.lang.String">
+            <column name="title" length="200"/>
+        </property>
+		<property name="fromtime" type="java.lang.String">
+            <column name="fromtime" length="45"/>
+        </property>
+        <property name="totime" type="java.lang.String">
+            <column name="totime" length="45"/>
+        </property>
+        <property name="classroom" type="java.lang.String">
+            <column name="classroom" length="80"/>
+        </property>
+        <property name="subjectid" type="java.lang.Integer">
+            <column name="subjectid" length="80"/>
+        </property>
+        <property name="classkey" type="java.lang.Integer">
+            <column name="classkey" length="80"/>
+        </property>
+        <property name="edate" type="java.util.Date">
+            <column name="edate" length="80"/>
+        </property>
+        <property name="enteringdate" type="java.util.Date">
+            <column name="enteringdate" length="80"/>
+        </property>
+        <property name="enteringenddate" type="java.util.Date">
+            <column name="enteringenddate" length="80"/>
+        </property>
+        <property name="teacherid" type="java.lang.String">
+            <column name="teacherid" length="80"/>
+        </property>
+        <property name="neishenyuanid" type="java.lang.String">
+            <column name="neishenyuanid" length="80"/>
+        </property>
+        <property name="phaseid" type="java.lang.Integer">
+            <column name="phaseid" length="80"/>
+        </property>
+        <property name="phasename" type="java.lang.String">
+            <column name="phasename" length="80"/>
+        </property>
+        <property name="scoretype" type="java.lang.Integer">
+            <column name="scoretype" length="80"/>
+        </property>
+        <property name="grade" type="java.lang.String">
+            <column name="grade" length="80"/>
+        </property>
+        <property name="program" type="java.lang.String">
+            <column name="program" length="80"/>
+        </property>
+        <property name="examtype" type="java.lang.Integer">
+            <column name="examtype" length="80"/>
+        </property>
+        <property name="updateenddate" type="java.util.Date">
+            <column name="updateenddate" length="80"/>
+        </property>
+        <property name="displaystatus" type="java.lang.Integer">
+            <column name="displaystatus" length="80"/>
+        </property>
+        <property name="passnumber" type="java.lang.Integer">
+            <column name="passnumber" length="80"/>
+        </property>
+        <property name="passrate" type="java.lang.String">
+            <column name="passrate" length="80"/>
+        </property>
+	</class>	
+</hibernate-mapping>

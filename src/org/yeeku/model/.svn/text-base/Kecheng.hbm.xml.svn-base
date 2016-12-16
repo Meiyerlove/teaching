@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="Kecheng"	table="kecheng">
+		<id	name="id" column="id">
+			<generator class="native"/>
+		</id>
+		<property name="grade" type="java.lang.Integer">
+            <column name="grade" length="80"/>
+        </property>
+		<property name="classname" type="java.lang.String">
+            <column name="classname" length="80"/>
+        </property>
+        <property name="subjectname" type="java.lang.String">
+            <column name="subjectname" length="80"/>
+        </property>
+        <property name="teacher" type="java.lang.String">
+            <column name="teacher" length="45"/>
+        </property>
+        <property name="week" type="java.lang.Integer">
+            <column name="week" length="80"/>
+        </property>
+        <property name="campus" type="java.lang.String">
+            <column name="campus" length="80"/>
+        </property>
+        <property name="classroom" type="java.lang.String">
+            <column name="classroom" length="80"/>
+        </property>
+        <property name="weekday" type="java.lang.String">
+            <column name="weekday" length="80"/>
+        </property>
+        <property name="starttime" type="java.lang.String">
+            <column name="starttime" length="80"/>
+        </property>
+        <property name="endtime" type="java.lang.String">
+            <column name="endtime" length="80"/>
+        </property>
+        <property name="subjectid" type="java.lang.Integer">
+            <column name="subjectid" length="10"/>
+        </property>
+        <property name="teacherid" type="java.lang.String">
+            <column name="teacherid" length="80"/>
+        </property>
+        <property name="semester" type="java.lang.String">
+            <column name="semester" length="80"/>
+        </property>
+        <property name="v_id" type="java.lang.Integer">
+            <column name="v_id" length="30"/>
+        </property>
+	</class>	
+</hibernate-mapping>

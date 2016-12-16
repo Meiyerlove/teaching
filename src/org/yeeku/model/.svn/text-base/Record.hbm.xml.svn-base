@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="Record"	table="OriChgRecord">
+
+		<id	name="serialID" column="SerialID">
+			<generator class="identity"/>
+		</id>
+
+		<property name="cardNO" column="CardNO" not-null="true" length="20" unique="true"/>
+		<property name="consumeType" column="ConsumeType" not-null="true" length="20"/>
+		<property name="consumeDate" column="ConsumeDate" not-null="true" length="20"/>
+		<property name="consumeTime" column="ConsumeTime" not-null="true" length="20"/>
+		<property name="equNO" column="EquNO" not-null="true" length="20"/>
+
+	</class>	
+</hibernate-mapping>

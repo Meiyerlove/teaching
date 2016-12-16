@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="EnterApply" table="enterapply">
+		<id	name="id" column="id">
+			<generator class="native"/>
+		</id>
+        <property name="examid" type="java.lang.Integer">
+            <column name="examid" length="20"/>
+        </property>
+        <property name="username" type="java.lang.String">
+            <column name="username" length="80"/>
+        </property>
+        <property name="applytime" type="java.lang.String">
+            <column name="applytime" length="80"/>
+        </property>
+         <property name="reason" type="java.lang.String">
+            <column name="reason" length="2000"/>
+        </property>
+        <property name="updatedate" type="java.lang.String">
+            <column name="updatedate" length="80"/>
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" length="20"/>
+        </property>
+        <property name="advice" type="java.lang.String">
+            <column name="advice" length="500"/>
+        </property>
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="Score"	table="score">
+		<id	name="id" column="id">
+			<generator class="native"/>
+		</id>
+		<property name="sid" type="java.lang.String">
+            <column name="sid" length="45"/>
+        </property>
+        <property name="subjectid" type="java.lang.Integer">
+            <column name="subjectid" length="10"/>
+        </property>
+        <property name="score" type="java.lang.String">
+            <column name="score" length="45"/>
+        </property>
+        <property name="examdate" type="java.util.Date">
+            <column name="examdate" length="45"/>
+        </property>
+        <property name="examid" type="java.lang.Integer">
+            <column name="examid" length="10"/>
+        </property>
+        <property name="classkey" type="java.lang.Integer">
+            <column name="classkey" length="10"/>
+        </property>
+        <property name="exam1" type="java.lang.String">
+            <column name="exam1" length="45"/>
+        </property>
+        <property name="exam2" type="java.lang.String">
+            <column name="exam2" length="45"/>
+        </property>
+        <property name="exam3" type="java.lang.String">
+            <column name="exam3" length="45"/>
+        </property>
+        <property name="exam4" type="java.lang.String">
+            <column name="exam4" length="45"/>
+        </property>
+        <property name="exam5" type="java.lang.String">
+            <column name="exam5" length="45"/>
+        </property>
+        <property name="exam6" type="java.lang.String">
+            <column name="exam6" length="45"/>
+        </property>
+        <property name="exam7" type="java.lang.String">
+            <column name="exam7" length="45"/>
+        </property>
+        <property name="exam8" type="java.lang.String">
+            <column name="exam8" length="45"/>
+        </property>
+        <property name="phaseid" type="java.lang.Integer">
+            <column name="phaseid" length="10"/>
+        </property>
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,142 @@
+10
+
+dir
+3722
+svn://115.29.173.167/workspace/teachingdv12/WebRoot/ckeditor/plugins
+svn://115.29.173.167
+
+
+
+2016-05-30T02:25:08.112984Z
+3044
+zengjiuzhou
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+aa8e18cd-ade2-5e46-a943-153739fca1c5
+
+a11yhelp
+dir
+
+about
+dir
+
+adobeair
+dir
+
+ajax
+dir
+
+autogrow
+dir
+
+bbcode
+dir
+
+clipboard
+dir
+
+colordialog
+dir
+
+devtools
+dir
+
+dialog
+dir
+
+div
+dir
+
+docprops
+dir
+
+find
+dir
+
+flash
+dir
+
+forms
+dir
+
+iframe
+dir
+
+iframedialog
+dir
+
+image
+dir
+
+link
+dir
+
+liststyle
+dir
+
+pagebreak
+dir
+
+pastefromword
+dir
+
+pastetext
+dir
+
+placeholder
+dir
+
+preview
+dir
+
+scayt
+dir
+
+showblocks
+dir
+
+smiley
+dir
+
+specialchar
+dir
+
+styles
+dir
+
+stylesheetparser
+dir
+
+table
+dir
+
+tableresize
+dir
+
+tabletools
+dir
+
+templates
+dir
+
+uicolor
+dir
+
+wsc
+dir
+
+xml
+dir
+

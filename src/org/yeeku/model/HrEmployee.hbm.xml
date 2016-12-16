@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="HrEmployee"	table="HrEmployee">
+
+		<id	name="serialID" column="SerialID">
+		   <generator class="identity"/>
+		</id>
+
+		<property name="emplID" column="EmplID" not-null="true" length="20"/>
+		<property name="emplName" column="EmplName" not-null="true" length="20"/>
+		<property name="remark" column="Remark"  length="255"/>
+		<property name="sex" column="Sex"  length="2"/>
+		<property name="age" column="Age"  length="4"/>
+		<property name="entryDate" column="EntryDate"  length="10"/>
+		<property name="iniPass" column="IniPass"  length="10"/>
+		<property name="passLogDate" column="PassLogDate"  length="10"/>
+		<property name="passLogCount" column="PassLogCount"  length="2"/>
+		<property name="image" column="Image"/>
+		<property name="status" column="Status"  length="20"/>
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="Right"	table="sys_right">
+		<id	name="rightcode" column="right_code">
+			<generator class="identity"/>
+		</id>
+        <property name="parentcode" type="java.lang.String">
+            <column name="right_parent_code" length="45"/>
+        </property>
+        <property name="righttype" type="java.lang.String">
+            <column name="right_type" length="20"/>
+        </property>
+        <property name="righttext" type="java.lang.String">
+            <column name="right_text" length="80"/>
+        </property>
+        <property name="righturl" type="java.lang.String">
+            <column name="right_url" length="200"/>
+        </property>
+        <property name="righttip" type="java.lang.String">
+            <column name="right_tip" length="200"/>
+        </property>
+        <property name="index" type="java.lang.Integer">
+            <column name="index" length="10"/>
+        </property>
+	</class>	
+</hibernate-mapping>

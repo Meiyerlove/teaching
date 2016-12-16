@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="Adjust"	table="adjust">
+		<id	name="id" column="id">
+			<generator class="native"/>
+		</id>
+		<property name="classname" type="java.lang.String">
+            <column name="classname" length="20"/>
+        </property>
+        <property name="subjectname" type="java.lang.String">
+            <column name="subjectname" length="80"/>
+        </property>
+        <property name="teachername" type="java.lang.String">
+            <column name="teachername" length="80"/>
+        </property>
+
+       <!--  <property name="datebefore" type="java.util.Date">
+            <column name="datebefore" length="80"/>
+        </property> -->
+         <property name="datebefore" type="java.lang.String">
+            <column name="datebefore" length="80"/>
+        </property>
+        <property name="starttimebefore" type="java.lang.String">
+            <column name="starttimebefore" length="80"/>
+        </property>
+        <property name="endtimebefore" type="java.lang.String">
+            <column name="endtimebefore" length="80"/>
+        </property>
+      <!--   <property name="dateafter" type="java.util.Date">
+            <column name="dateafter" length="80"/>
+        </property> -->
+         <property name="dateafter" type="java.lang.String">
+            <column name="dateafter" length="80"/>
+        </property> 
+        <property name="starttimeafter" type="java.lang.String">
+            <column name="starttimeafter" length="80"/>
+        </property>
+        <property name="endtimeafter" type="java.lang.String">
+            <column name="endtimeafter" length="80"/>
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" length="80"/>
+        </property>
+        <property name="reason" type="java.lang.String">
+            <column name="reason" length="200"/>
+        </property>
+        <property name="classroom" type="java.lang.String">
+            <column name="classroom" length="200"/>
+        </property>
+        <property name="newlcassroom" type="java.lang.String">
+            <column name="newlcassroom" length="200"/>
+        </property>
+        <property name="tknumber" type="java.lang.String">
+            <column name="tknumber" length="45"/>
+        </property>
+        <property name="edureason" type="java.lang.String">
+            <column name="edureason" length="200"/>
+        </property>
+        <property name="deanreason" type="java.lang.String">
+            <column name="deanreason" length="200"/>
+        </property>
+        <property name="s_status" type="java.lang.String">
+            <column name="s_status" length="200"/>
+        </property>
+        <property name="v_id" type="java.lang.Integer">
+            <column name="v_id" length="10"/>
+        </property>
+        <property name="publishdate" type="java.lang.String">
+            <column name="publishdate" length="80"/>
+        </property>
+	</class>	
+</hibernate-mapping>

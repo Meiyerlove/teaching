@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.yeeku.model">
+	<class name="Ielts"	table="ielts">
+		<id	name="id" column="id">
+			<generator class="native"/>
+		</id>
+		<property name="sid" type="java.lang.String">
+            <column name="sid" length="80"/>
+        </property>
+        <property name="listening" type="java.lang.String">
+            <column name="listening" length="80"/>
+        </property>
+        <property name="speaking" type="java.lang.String">
+            <column name="speaking" length="80"/>
+        </property>
+        <property name="reading" type="java.lang.String">
+            <column name="reading" length="80"/>
+        </property>
+        <property name="writing" type="java.lang.String">
+            <column name="writing" length="80"/>
+        </property>
+        <property name="total" type="java.lang.String">
+            <column name="total" length="80"/>
+        </property>
+        <property name="createdate" type="java.util.Date">
+            <column name="createdate" length="80"/>
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" length="20"/>
+        </property>
+        <property name="account" type="java.lang.String">
+            <column name="account" length="80"/>
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="password" length="80"/>
+        </property>
+        <property name="classid" type="java.lang.Integer">
+            <column name="classid" length="20"/>
+        </property>
+	</class>	
+</hibernate-mapping>

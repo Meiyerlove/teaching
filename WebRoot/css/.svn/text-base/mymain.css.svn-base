@@ -1,0 +1,49 @@
+#main {
+font-family:arial;
+font-size:16px;
+margin-left:10%;
+margin-right:10%;
+padding-top:6%;
+padding-bottom:25%;
+background-color:#B4C444;
+}
+
+#top {
+font-family:"Î¢ÑÅºÚÌå";
+font-size:16px;
+background-color:#B4C444;
+padding-bottom:0.2%;
+}
+
+#left {
+font-family:"Î¢ÑÅºÚÌå";
+font-size:16px;
+background-color:#B4C444;
+padding-bottom:80%;
+}
+
+#left_user {
+font-family:"Î¢ÑÅºÚÌå";
+font-size:16px;
+background-color:#B4C444;
+padding-bottom:150%;
+}
+
+#left_agent {
+font-family:"Î¢ÑÅºÚÌå";
+font-size:16px;
+background-color:#B4C444;
+padding-bottom:140%;
+}
+
+#list {
+font-family:"Î¢ÑÅºÚÌå";
+font-size:16px;
+background-color:#B4C444;
+padding-bottom:35%;
+}
+
+#page{
+background-color:#B4C444;
+padding-bottom:50%;
+}

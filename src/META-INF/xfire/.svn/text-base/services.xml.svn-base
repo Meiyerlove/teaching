@@ -1,0 +1,11 @@
+<!-- START SNIPPET: services -->
+<beans>
+	 <service xmlns="http://xfire.codehaus.org/config/1.0" xmlns:s="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+		<name>ServiceTest</name>
+		<namespace>http://com.islet.xfire/ServiceTest</namespace>
+		<serviceClass>org.yeeku.webservice.ServiceImpl</serviceClass>
+	</service>
+</beans>
+<!-- END SNIPPET: services -->
